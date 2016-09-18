@@ -30,7 +30,8 @@
             android:text="@string/readingTestStopButton"
             android:id="@+id/readingTestStopButton"
             android:layout_below="@+id/readingTestReadingMaterial"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:onClick="readingTestStopShowPopUp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

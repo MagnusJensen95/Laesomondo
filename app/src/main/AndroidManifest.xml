@@ -18,7 +18,11 @@
         <activity android:name=".LogIn" />
         <activity android:name=".MainMenuUser" />
         <activity android:name=".ReadingTestPrerequisites" />
-        <activity android:name=".ReadingTest"></activity>
+        <activity android:name=".ReadingTest" />
+        <activity
+            android:name=".SummaryPopUp"
+            android:theme="@style/AppTheme.CustomPopUpTheme" />
+        <activity android:name=".UserProfile"></activity>
     </application>
 
 </manifest>

@@ -9,5 +9,7 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading_test_prerequisites);
+
+        //implement functionality, as well as cm start button (stop button in reading test).
     }
 }

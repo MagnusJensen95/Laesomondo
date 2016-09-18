@@ -18,6 +18,7 @@
     <string name="readingTestPrerequisitesReadingDifficulty">Hvilken svaerhedsgrad skal teksten have?</string>
     <string name="readingTestPrerequisitesStartButton">Start!</string>
 
+
     <string name="readingTestReadingMaterial"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien in laoreet interdum. Curabitur interdum ultricies laoreet. Pellentesque eu rutrum erat. Vivamus efficitur leo quis mauris dapibus eleifend. Phasellus non quam et turpis scelerisque tincidunt. Mauris lorem tellus, venenatis id tempus id, lobortis vel dui. Nunc massa lectus, sodales sit amet interdum eget, porta eget libero. Aenean id mi nibh. Morbi sit amet elit ex.
 
 Donec diam nunc, volutpat eget quam aliquam, vehicula suscipit dui. Etiam congue dictum felis id rhoncus. Curabitur id sapien eget ligula molestie aliquet. Donec dapibus sollicitudin risus vitae vehicula. Morbi et eros at risus viverra tincidunt. Mauris commodo finibus elementum. Nulla ultrices tellus arcu, at pulvinar libero luctus non. Donec eget fringilla augue. Maecenas lorem lorem, auctor et purus sit amet, dapibus blandit ipsum.
@@ -28,4 +29,8 @@ Sed vitae mauris nec nisi pretium fringilla id non metus. Nulla sagittis justo i
 
 Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mollis tempus nulla commodo. Cras facilisis nunc nisl, eget consequat augue euismod eget. Integer iaculis tortor a odio porttitor, ut fringilla quam pretium. Proin nec metus quis urna scelerisque sodales eu at purus. Proin vel magna blandit, aliquet orci et, interdum arcu. Morbi maximus augue a metus porttitor, in tristique velit tristique. Aliquam cursus scelerisque augue sed ornare. Duis augue orci, porta non luctus quis, volutpat et elit. Vivamus vitae mollis risus. Donec eget dui quis dolor porttitor varius. Pellentesque sit amet euismod arcu. Mauris aliquam mollis lacus id laoreet. Suspendisse quis porttitor enim, ut tristique tortor. Vestibulum suscipit nibh ut ex interdum molestie nec porta enim.</string>
     <string name="readingTestStopButton">Stop</string>
+
+    <string name="summaryPopUpReadingTime">%1$d minutes and %2$d seconds</string>
+
+
 </resources>
