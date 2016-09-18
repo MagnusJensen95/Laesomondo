@@ -31,6 +31,10 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="readingTestStopButton">Stop</string>
 
     <string name="summaryPopUpReadingTime">%1$d minutes and %2$d seconds</string>
+    <string name="summaryPopUpTryAgainButtonText">Try Again</string>
+    <string name="summaryPopUpTBD">TBD</string>
+
+
 
 
 </resources>
