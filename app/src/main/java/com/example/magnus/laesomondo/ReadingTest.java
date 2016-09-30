@@ -14,6 +14,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
 import java.util.Timer;
 
 public class ReadingTest extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class ReadingTest extends AppCompatActivity {
 
         final double readingTestReadingTimeStart = System.currentTimeMillis();
 
-        //implement (chronometer) setonclicklistener stop button, and start button in readingprereqs
+
 
         TextView tv = (TextView) findViewById(R.id.readingTestReadingMaterial);
         tv.setMovementMethod(new ScrollingMovementMethod());

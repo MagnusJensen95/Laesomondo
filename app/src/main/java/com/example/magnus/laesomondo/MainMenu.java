@@ -15,11 +15,13 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
-    public void onVidere(View view){
-
-        Intent intent = new Intent(this, ReadingTest.class);
-
+    public void onLaeseTest(View view){
+        Intent intent = new Intent(this, ReadingTestPrerequisites.class);
         startActivity(intent);
-
     }
+
+    public void onLogInd(View view){
+        startActivity(new Intent(this, LogIn.class));
+    }
+
 }
