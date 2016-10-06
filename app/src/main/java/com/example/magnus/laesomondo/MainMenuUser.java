@@ -20,4 +20,6 @@ public class MainMenuUser extends AppCompatActivity {
     public void onLogOut(View view){
         startActivity(new Intent(this, MainMenu.class));
     }
+
+    public void onLaeseTestUser(View view) { startActivity(new Intent(this, ReadingTestPrerequisites.class)); }
 }

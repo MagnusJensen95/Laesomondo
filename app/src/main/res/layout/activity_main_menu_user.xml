@@ -25,7 +25,8 @@
         android:id="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_marginTop="72dp"
         android:layout_below="@+id/mainMenuUserLoggedInTitle"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onLaeseTestUser"/>
 
     <LinearLayout
         android:orientation="horizontal"

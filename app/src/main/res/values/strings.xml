@@ -14,9 +14,9 @@
     <string name="logInPasswordButton">Password:</string>
     <string name="logInLogInButton">Log Ind</string>
 
-    <string name="readingTestPrerequisitesReadingTime">Hvor lang tid vil du laese?</string>
+    <string name="readingTestPrerequisitesReadingTime">Hvor lang tid vil du laese? (i minutter)</string>
     <string name="readingTestPrerequisitesReadingDifficulty">Hvilken svaerhedsgrad skal teksten have?</string>
-    <string name="readingTestPrerequisitesStartButton">Start!</string>
+    <string name="readingTestPrerequisitesStartButton">LÆS!</string>
 
 
     <string name="readingTestReadingMaterial"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien in laoreet interdum. Curabitur interdum ultricies laoreet. Pellentesque eu rutrum erat. Vivamus efficitur leo quis mauris dapibus eleifend. Phasellus non quam et turpis scelerisque tincidunt. Mauris lorem tellus, venenatis id tempus id, lobortis vel dui. Nunc massa lectus, sodales sit amet interdum eget, porta eget libero. Aenean id mi nibh. Morbi sit amet elit ex.
