@@ -53,5 +53,6 @@
         android:id="@+id/logInLogInButton"
         android:layout_below="@+id/passwordField"
         android:layout_toEndOf="@+id/logInPasswordButton"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="65dp"
+        android:onClick="onLoginAttempt"/>
 </RelativeLayout>

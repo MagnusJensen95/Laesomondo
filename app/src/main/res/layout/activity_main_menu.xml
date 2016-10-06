@@ -26,7 +26,7 @@
         android:layout_below="@+id/mainMenuUserLoggedInTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="123dp"
-        android:onClick="onVidere"/>
+        android:onClick="onLaeseTest"/>
 
     <Button
         android:layout_width="match_parent"
@@ -35,6 +35,7 @@
         android:id="@+id/mainMenuLogInButton"
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="107dp" />
+        android:layout_marginTop="107dp"
+        android:onClick="onLogInd"/>
 
 </RelativeLayout>
