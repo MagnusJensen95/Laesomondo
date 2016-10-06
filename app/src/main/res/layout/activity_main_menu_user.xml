@@ -41,7 +41,8 @@
             android:text="@string/mainMenuUserLoggedInMyProfile"
             android:id="@+id/mainMenuUserLoggedInMyProfile"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="onMyProfile" />
 
         <Button
             android:layout_width="wrap_content"
@@ -50,7 +51,7 @@
             android:id="@+id/mainMenuUserLoggedInLogOut"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            />
+            android:onClick="onLogOut"/>
     </LinearLayout>
 
 
