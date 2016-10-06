@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+
     tools:context="com.example.magnus.laesomondo.UserProfile">
 
-
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="0.5"
 
-     >
+        android:elevation="1dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/imagefilluserpage"
+            android:background="@drawable/franettettest">
+        </ImageView>
+
+        <TextView
+            android:padding="10dp"
+            android:text="Navn"
+
+            style="@style/graphText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myPageBrugernavn"/>
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+
 
         <ImageView
             android:layout_width="match_parent"
@@ -22,10 +53,18 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:id="@+id/imageView"
+            android:background="@drawable/franettettest">
+        </ImageView>
 
-            />
+        <TextView
+            android:text="@string/udvikling"
+            style="@style/graphText"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grafTekst" />
 
 
-    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+</LinearLayout>

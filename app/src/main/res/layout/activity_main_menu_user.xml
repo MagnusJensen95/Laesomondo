@@ -7,16 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/franettettest"
     tools:context="com.example.magnus.laesomondo.MainMenuUser">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/mainMenuUserLoggedInTitle"
-        android:id="@+id/mainMenuUserLoggedInTitle"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,6 +17,7 @@
         android:id="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_marginTop="72dp"
         android:layout_below="@+id/mainMenuUserLoggedInTitle"
+        android:background="@drawable/roundcorners"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
@@ -33,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="106dp">
+        android:layout_marginTop="106dp"
+        android:weightSum="1">
 
         <Button
             android:layout_width="wrap_content"
@@ -41,8 +35,15 @@
             android:text="@string/mainMenuUserLoggedInMyProfile"
             android:id="@+id/mainMenuUserLoggedInMyProfile"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_weight="0.4"
+
+            android:background="@drawable/roundcorners"
             android:onClick="onMyProfile" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -50,9 +51,21 @@
             android:text="@string/mainMenuUserLoggedInLogOut"
             android:id="@+id/mainMenuUserLoggedInLogOut"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:onClick="onLogOut"/>
+            android:layout_weight="0.4"
+            android:onClick="onLogOut"
+            android:background="@drawable/roundcorners"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/mainMenuUserLoggedInTitle"
+        style="@style/graphText"
+
+        android:id="@+id/mainMenuUserLoggedInTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

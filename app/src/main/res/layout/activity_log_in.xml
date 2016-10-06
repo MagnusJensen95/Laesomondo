@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/franettettest"
     tools:context="com.example.magnus.laesomondo.LogIn">
 
     <TextView
@@ -54,5 +55,6 @@
         android:layout_below="@+id/passwordField"
         android:layout_toEndOf="@+id/logInPasswordButton"
         android:layout_marginTop="65dp"
-        android:onClick="onLoginAttempt"/>
+        android:onClick="onLoginAttempt"
+        android:background="@drawable/roundcorners"/>
 </RelativeLayout>

@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.magnus.laesomondo.ReadingTestPrerequisites">
+    tools:context="com.example.magnus.laesomondo.ReadingTestPrerequisites"
+    android:background="@drawable/franettettest">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,6 +18,8 @@
         android:text="@string/readingTestPrerequisitesReadingTime"
         android:id="@+id/readingTestPrerequisitesReadingTime"
         android:layout_alignParentTop="true"
+        style="@style/usernameText"
+        android:textColor="#de911e"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="111dp"/>
 
@@ -27,6 +31,9 @@
         android:layout_centerHorizontal="true"
         android:max="10"
         android:progress="8"
+        android:thumbTint="#000000"
+        android:progressTint="#000000"
+
         android:indeterminate="false"/>
 
     <TextView
@@ -37,6 +44,7 @@
         android:id="@+id/readingTestPrerequisitesReadingDifficulty"
         android:layout_below="@+id/readingTestPrerequisitesTimeSlider"
         android:layout_centerHorizontal="true"
+        android:textColor="#de911e"
         android:layout_marginTop="50dp"/>
 
     <SeekBar
@@ -48,6 +56,8 @@
         android:layout_centerHorizontal="true"
         android:max="10"
         android:progress="4"
+        android:thumbTint="#000000"
+        android:progressTint="#000000"
         android:indeterminate="false"/>
 
     <Button
@@ -58,6 +68,7 @@
         android:layout_below="@+id/readingTestPrerequisitesDifficultySlider"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:onClick="startReadingTest"/>
+        android:onClick="startReadingTest"
+        android:background="@drawable/roundcorners" />
 
 </RelativeLayout>

@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/franettettest"
     tools:context="com.example.magnus.laesomondo.MainMenu">
 
     <TextView
@@ -14,6 +15,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/mainMenuTitle"
+        style="@style/graphText"
+
         android:id="@+id/mainMenuUserLoggedInTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -26,7 +29,8 @@
         android:layout_below="@+id/mainMenuUserLoggedInTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="123dp"
-        android:onClick="onLaeseTest"/>
+        android:onClick="onLaeseTest"
+        android:background="@drawable/roundcorners"/>
 
     <Button
         android:layout_width="match_parent"
@@ -36,6 +40,7 @@
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="107dp"
-        android:onClick="onLogInd"/>
+        android:onClick="onLogInd"
+        android:background="@drawable/roundcorners"/>
 
 </RelativeLayout>
