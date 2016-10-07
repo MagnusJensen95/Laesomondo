@@ -23,14 +23,14 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:id="@+id/imagefilluserpage"
-            android:background="@drawable/franettettest">
+            android:background="@drawable/baggrundsstest">
         </ImageView>
 
         <TextView
             android:padding="10dp"
             android:text="Navn"
 
-            style="@style/graphText"
+            style="@style/defaultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/myPageBrugernavn"/>
@@ -53,12 +53,12 @@
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:id="@+id/imageView"
-            android:background="@drawable/franettettest">
+            android:background="@drawable/baggrundsstest">
         </ImageView>
 
         <TextView
             android:text="@string/udvikling"
-            style="@style/graphText"
+            style="@style/defaultText"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
