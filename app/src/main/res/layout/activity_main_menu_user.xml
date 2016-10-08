@@ -7,16 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/baggrundsstest"
     tools:context="com.example.magnus.laesomondo.MainMenuUser">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/mainMenuUserLoggedInTitle"
-        android:id="@+id/mainMenuUserLoggedInTitle"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -25,7 +17,12 @@
         android:id="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_marginTop="72dp"
         android:layout_below="@+id/mainMenuUserLoggedInTitle"
-        android:layout_centerHorizontal="true" />
+        android:background="#11ff00"
+        style="@style/defaultText"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="onLaesetest"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -33,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="106dp">
+        android:layout_marginTop="106dp"
+        android:weightSum="1">
 
         <Button
             android:layout_width="wrap_content"
@@ -41,8 +39,18 @@
             android:text="@string/mainMenuUserLoggedInMyProfile"
             android:id="@+id/mainMenuUserLoggedInMyProfile"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_weight="0.4"
+
+            android:background="#11ff00"
+            style="@style/defaultText"
+            android:textColor="#000000"
+            android:textSize="15dp"
             android:onClick="onMyProfile" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -50,9 +58,24 @@
             android:text="@string/mainMenuUserLoggedInLogOut"
             android:id="@+id/mainMenuUserLoggedInLogOut"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:onClick="onLogOut"/>
+            android:layout_weight="0.4"
+            android:onClick="onLogOut"
+            android:background="#11ff00"
+            style="@style/defaultText"
+            android:textColor="#000000"
+            android:textSize="15dp"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/mainMenuUserLoggedInTitle"
+        style="@style/defaultText"
+
+        android:id="@+id/mainMenuUserLoggedInTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
