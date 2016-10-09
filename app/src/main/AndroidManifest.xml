@@ -22,7 +22,8 @@
         <activity
             android:name=".SummaryPopUp"
             android:theme="@style/AppTheme.CustomPopUpTheme" />
-        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".UserProfile" />
+        <activity android:name=".TextFromNetAct"></activity>
     </application>
 
 </manifest>
