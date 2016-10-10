@@ -21,5 +21,7 @@ public class MainMenuUser extends AppCompatActivity {
         startActivity(new Intent(this, MainMenu.class));
     }
 
-    public void onLaeseTestUser(View view) { startActivity(new Intent(this, ReadingTestPrerequisites.class)); }
+    public void onLaesetest(View view){
+        startActivity(new Intent(this, ReadingTestPrerequisites.class));
+    }
 }

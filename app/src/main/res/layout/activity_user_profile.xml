@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:weightSum="1"
+
     tools:context="com.example.magnus.laesomondo.UserProfile">
 
-</RelativeLayout>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+
+        android:elevation="1dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/imagefilluserpage"
+            android:background="@drawable/baggrundsstest">
+        </ImageView>
+
+        <TextView
+            android:padding="10dp"
+            android:text="Navn"
+
+            style="@style/defaultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myPageBrugernavn"/>
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/grafbillede"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/imageView"
+            android:background="@drawable/baggrundsstest">
+        </ImageView>
+
+        <TextView
+            android:text="@string/udvikling"
+            style="@style/defaultText"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grafTekst" />
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
