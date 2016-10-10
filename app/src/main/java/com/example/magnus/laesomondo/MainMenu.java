@@ -24,4 +24,8 @@ public class MainMenu extends AppCompatActivity {
         startActivity(new Intent(this, LogIn.class));
     }
 
+    public void onWebContent(View view){
+        startActivity(new Intent(this, TextFromNetAct.class));
+    }
+
 }

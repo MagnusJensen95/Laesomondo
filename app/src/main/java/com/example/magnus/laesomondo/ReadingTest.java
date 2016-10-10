@@ -25,9 +25,13 @@ public class ReadingTest extends AppCompatActivity {
 
         final double readingTestReadingTimeStart = System.currentTimeMillis();
 
+        Bundle textToRead = getIntent().getExtras();
 
 
         TextView tv = (TextView) findViewById(R.id.readingTestReadingMaterial);
+
+       tv.setText(textToRead.getString("TextToLoad"));
+
         tv.setMovementMethod(new ScrollingMovementMethod());
 
         Button readingTestStopShowPopUp = (Button) findViewById(R.id.readingTestStopButton);

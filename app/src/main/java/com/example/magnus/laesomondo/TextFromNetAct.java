@@ -1,12 +1,28 @@
 package com.example.magnus.laesomondo;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 
 public class TextFromNetAct extends AppCompatActivity {
 
     WebView web;
+    Button load;
+    HTMLExtractor textLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,46 +32,68 @@ public class TextFromNetAct extends AppCompatActivity {
 
         web = (WebView) findViewById(R.id.webviewContent);
 
-        web.loadUrl("http//:google.com");
-
-        import java.io.File;
-        import java.io.IOException;
-
-        import org.jsoup.Jsoup;
-        import org.jsoup.nodes.Document;
-        import org.jsoup.nodes.Element;
-        import org.jsoup.select.Elements;
-
-
-
-        public class HTMLLoader {
-
-            private String url;
-
-
-            public HTMLLoader(String URL) {
-
-
-
+        web.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return false;
             }
+        });
 
-            public static void main(String[] args)  {
-                try {
-                    String url = "http://ekstrabladet.dk/flash/taxichauffoer-kaldte-louise-luder-luder-luder/6338782";
-                    Document doc = Jsoup.connect(url).get();
-                    Elements paragraphs = doc.select("p");
-                    for(Element p : paragraphs)
-                        if(p.text().length() > 200){
-                            System.out.println(p.text());
-                            System.out.println("\n");
-                        }
-                }
-                catch (IOException ex) {
+        web.loadUrl("http://www.google.com");
 
-                }
-            }
-        }
+        load = (Button)findViewById(R.id.loadPageButton);
+
+        //textLoader = new HTMLExtractor("http://www.google.com");
 
 
     }
+
+    public void onLoadContent(View v){
+
+        new fetchHTMLText().execute();
+
+    }
+
+    private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
+
+            String HTMLTExt = "";
+            String currentURL = web.getUrl().toString();
+        @Override
+        protected Void doInBackground(Void... params) {
+
+
+            try {
+
+                Document doc = Jsoup.connect(currentURL).get();
+              //  HTMLTExt = doc.text();
+               Elements paragraphs = doc.select("p");
+                for (Element p : paragraphs) {
+                    if (p.text().length() > 100) {
+
+                        HTMLTExt += p.text();
+                    }
+
+                }
+            } catch (IOException ex) {
+
+                Log.i("DEBUG", "IN THE EXCEPTION");
+
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+           // textLoader.setUrl(this.web.getUrl());
+
+            Intent goToReading = new Intent(getApplicationContext(), ReadingTest.class);
+
+            goToReading.putExtra("TextToLoad", HTMLTExt);
+
+            startActivity(goToReading);
+        }
+    }
+
 }

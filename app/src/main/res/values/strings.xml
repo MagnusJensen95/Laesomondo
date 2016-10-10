@@ -34,6 +34,7 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="summaryPopUpTryAgainButtonText">Ny Test</string>
     <string name="summaryPopUpTBD">Min Side</string>
     <string name="udvikling">Udvikling</string>
+    <string name="main_menu_tekst_fra_nettet">Tekst Fra Nettet</string>
 
 
 </resources>
