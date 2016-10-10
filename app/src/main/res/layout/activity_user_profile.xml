@@ -45,17 +45,6 @@
         android:layout_weight="0.5">
 
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/grafbillede"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:id="@+id/imageView"
-            android:background="@drawable/baggrundsstest">
-        </ImageView>
-
         <TextView
             android:text="@string/udvikling"
             style="@style/defaultText"
