@@ -65,8 +65,8 @@ public class TextFromNetAct extends AppCompatActivity {
             try {
 
                 Document doc = Jsoup.connect(currentURL).get();
-              //  HTMLTExt = doc.text();
-               Elements paragraphs = doc.select("p");
+                //  HTMLTExt = doc.text();
+                Elements paragraphs = doc.select("p");
                 HTMLTitel = doc.title();
                 for (Element p : paragraphs) {
                     if (p.text().length() > 100) {
