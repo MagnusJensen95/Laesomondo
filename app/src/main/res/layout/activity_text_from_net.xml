@@ -28,5 +28,5 @@
         android:layout_below="@+id/loadPageButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/webviewContent"
+        android:id="@+id/webviewContent"></WebView>
 </RelativeLayout>
