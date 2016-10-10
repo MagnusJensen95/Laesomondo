@@ -2,8 +2,13 @@ package com.example.magnus.laesomondo;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * Created by Magnus on 10-10-2016.
@@ -40,18 +45,42 @@ public class DBHandler extends SQLiteOpenHelper{
         this.onCreate(db);
     }
 
-        public void addTestResult (String titel, int words, double minutes){
+    public void addTestResult (String titel, int words, double minutes){
 
             SQLiteDatabase db = getWritableDatabase();
 
             ContentValues række = new ContentValues();
-            række.put(this.titel, titel);
-            række.put(this.ord, words);
-            række.put(this.minutter, minutes);
-            db.insert(this.TABLE_WPM, null, række);
+            række.put(titel, titel);
+            række.put(ord, words);
+            række.put(minutter, minutes);
+            db.insert(TABLE_WPM, null, række);
 
 
-
+            db.close();
 
         }
+
+    public ArrayList<Result> getContent(){
+
+        ArrayList<Result> results = new ArrayList<>();
+        String[] kolonner = {DBHandler.titel, DBHandler.ord, DBHandler.minutter};
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+        builder.setTables(TABLE_WPM);
+
+
+        Cursor cursor = builder.query(db, kolonner, null, null, null, null, null);
+        if(cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                Log.i("DEBUG", "Inside bruh");
+                Log.i("DEBUG", cursor.getString(0));
+                results.add(new Result(cursor.getString(0), cursor.getInt(1), cursor.getDouble(2)));
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
+
+        db.close();
+        return  results;
+    }
 }
