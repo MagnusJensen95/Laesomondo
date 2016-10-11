@@ -34,10 +34,6 @@ public class ReadingTest extends AppCompatActivity {
         final double readingTestReadingTimeStart = System.currentTimeMillis();
         tv = (TextView) findViewById(R.id.readingTestReadingMaterial);
 
-        //TODO: Somehow need to differentiate between different reading tests.
-        //TODO: Use the intent extras "readingTestPrerequisites" and "readingTestWebView" for now.
-        //TODO: Maybe switch case?
-
         bundle = getIntent().getExtras();
         typeReadingTest = bundle.getString("readingTestType");
 
