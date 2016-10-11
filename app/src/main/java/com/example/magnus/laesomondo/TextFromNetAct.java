@@ -1,5 +1,6 @@
 package com.example.magnus.laesomondo;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -43,8 +44,6 @@ public class TextFromNetAct extends AppCompatActivity {
 
         load = (Button)findViewById(R.id.loadPageButton);
 
-
-
     }
 
     public void onLoadContent(View v){
@@ -61,9 +60,7 @@ public class TextFromNetAct extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
 
-
             try {
-
                 Document doc = Jsoup.connect(currentURL).get();
                 //  HTMLTExt = doc.text();
                 Elements paragraphs = doc.select("p");
@@ -94,7 +91,7 @@ public class TextFromNetAct extends AppCompatActivity {
 
             goToReading.putExtra("TextToLoad", HTMLTExt);
             goToReading.putExtra("Titel", HTMLTitel);
-
+            goToReading.putExtra("test", "readingTestWebView");
             startActivity(goToReading);
         }
     }

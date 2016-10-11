@@ -109,6 +109,7 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
 
         Intent intent = new Intent(getBaseContext(), ReadingTest.class);
         intent.putExtra("timeStart", System.currentTimeMillis());
+        intent.putExtra("test", "readingTestPrerequisites");
         startActivity(intent);
     }
     //implement functionality, as well as cm start button (stop button in reading test).
