@@ -18,8 +18,6 @@
         android:text="@string/readingTestPrerequisitesReadingTime"
         android:id="@+id/readingTestPrerequisitesReadingTime"
         android:layout_alignParentTop="true"
-
-
         style="@style/defaultText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="111dp"/>
@@ -34,8 +32,15 @@
         android:progress="8"
         android:thumbTint="#11ff00"
         android:progressTint="#11ff00"
-
         android:indeterminate="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/seekBarTimeValue"
+        android:layout_below="@+id/readingTestPrerequisitesTimeSlider"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +51,6 @@
         android:layout_below="@+id/readingTestPrerequisitesTimeSlider"
         android:layout_centerHorizontal="true"
         style="@style/defaultText"
-
         android:layout_marginTop="50dp"/>
 
     <SeekBar
@@ -56,11 +60,19 @@
         android:layout_below="@+id/readingTestPrerequisitesReadingDifficulty"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:max="10"
-        android:progress="4"
+        android:max="3"
+        android:progress="1"
         android:thumbTint="#11ff00"
         android:progressTint="#11ff00"
         android:indeterminate="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/seekBarDifficultyValue"
+        android:layout_below="@+id/readingTestPrerequisitesDifficultySlider"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

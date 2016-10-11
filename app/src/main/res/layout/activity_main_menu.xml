@@ -38,11 +38,25 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mainMenuLogInButton"
-        android:id="@+id/mainMenuLogInButton"
+        android:text="@string/main_menu_tekst_fra_nettet"
+        android:id="@+id/mainMenuWebcontentButton"
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="50dp"
+        android:onClick="onWebContent"
+        android:background="#11ff00"
+        style="@style/defaultText"
+        android:textColor="#000000"
+        android:textSize="15dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mainMenuLogInButton"
+        android:id="@+id/mainMenuLogInButton"
+        android:layout_below="@+id/mainMenuWebcontentButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:onClick="onLogInd"
         android:background="#11ff00"
         style="@style/defaultText"

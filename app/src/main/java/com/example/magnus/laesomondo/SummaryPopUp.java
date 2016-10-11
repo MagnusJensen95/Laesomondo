@@ -2,6 +2,7 @@ package com.example.magnus.laesomondo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,16 @@ public class SummaryPopUp extends AppCompatActivity {
 
     Button tryAgain;
     Button profile;
+
+    Double timeMillis;
+    int wordsInText;
+    String textTitle;
+
+    //TODO: Implement userLoggedIn variable for determining if profile
+    //TODO: button should be shown. See onDestroy for more.
+    //This is due to us having more than one test. As such,
+    //It cannot lead back to ReadingTest prereqs, since that
+    //is specific to that one text, and this class isn't.
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -36,13 +47,18 @@ public class SummaryPopUp extends AppCompatActivity {
         scoreView.setTextColor(Color.WHITE);
 
         Bundle extras = getIntent().getExtras();
-        Double timeMillis = extras.getDouble("readingTime");
+         timeMillis = extras.getDouble("ReadingTime");
+         wordsInText = extras.getInt("WordsIntText");
+         textTitle = extras.getString("TextTitle");
 
         int timeMinutes = (int) Math.floor((timeMillis/1000)/60);
         int timeSeconds = (int) Math.floor(timeMillis/1000)%60;
 
         scoreView.setText(getString(R.string.summaryPopUpReadingTime, timeMinutes, timeSeconds));
 
+        DBHandler database = new DBHandler(this);
+
+        database.addTestResult(textTitle, wordsInText, timeMillis);
     }
 
     @Override
@@ -50,13 +66,14 @@ public class SummaryPopUp extends AppCompatActivity {
         super.onDestroy();
 
         Intent switchActivity = new Intent(this, MainMenu.class);
-
         startActivity(switchActivity);
     }
 
-    public void onTryAgain(View v){
-
-        Intent goTo = new Intent(this, ReadingTestPrerequisites.class);
+    public void onBackToMenu(View v){
+        //TODO: Create variable for whether or not user is logged in or not.
+        //TODO: If user is NOT logged in, remove Profile button, and take back
+        //TODO: to REGULAR MAIN MENU (MainMenu.class).
+        Intent goTo = new Intent(this, MainMenu.class);
 
         startActivity(goTo);
     }
