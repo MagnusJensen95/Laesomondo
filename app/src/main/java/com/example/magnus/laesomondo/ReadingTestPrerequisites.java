@@ -107,7 +107,7 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
     public void startReadingTest(View v) {
 
         //TODO:Below needs severe overhaul. More texts in strings resource, random or determined way
-        //TODO:of loading differenting texts, title for textstring as well.
+        //TODO:of loading differentiating texts, title for textstring as well.
         String readingText = getString(R.string.readingTestReadingMaterial);
 
         Intent intent = new Intent(getBaseContext(), ReadingTest.class);
