@@ -25,7 +25,11 @@ public class SummaryPopUp extends AppCompatActivity {
     int wordsInText;
     String textTitle;
 
-
+    //TODO: Implement userLoggedIn variable for determining if profile
+    //TODO: button should be shown. See onDestroy for more.
+    //This is due to us having more than one test. As such,
+    //It cannot lead back to ReadingTest prereqs, since that
+    //is specific to that one text, and this class isn't.
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -52,23 +56,24 @@ public class SummaryPopUp extends AppCompatActivity {
 
         scoreView.setText(getString(R.string.summaryPopUpReadingTime, timeMinutes, timeSeconds));
 
+        DBHandler database = new DBHandler(this);
+
+        database.addTestResult(textTitle, wordsInText, timeMillis);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        DBHandler database = new DBHandler(this);
-
-        database.addTestResult(textTitle, wordsInText, timeMillis);
-
         Intent switchActivity = new Intent(this, MainMenu.class);
         startActivity(switchActivity);
     }
 
-    public void onTryAgain(View v){
-
-        Intent goTo = new Intent(this, ReadingTestPrerequisites.class);
+    public void onBackToMenu(View v){
+        //TODO: Create variable for whether or not user is logged in or not.
+        //TODO: If user is NOT logged in, remove Profile button, and take back
+        //TODO: to REGULAR MAIN MENU (MainMenu.class).
+        Intent goTo = new Intent(this, MainMenu.class);
 
         startActivity(goTo);
     }

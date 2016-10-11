@@ -1,5 +1,6 @@
 package com.example.magnus.laesomondo;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -43,8 +44,6 @@ public class TextFromNetAct extends AppCompatActivity {
 
         load = (Button)findViewById(R.id.loadPageButton);
 
-
-
     }
 
     public void onLoadContent(View v){
@@ -55,23 +54,22 @@ public class TextFromNetAct extends AppCompatActivity {
 
     private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
 
-            String HTMLTExt = "";
-            String HTMLTitel;
-            String currentURL = web.getUrl().toString();
+        String HTMLTExt = "";
+        String HTMLTitel;
+        String currentURL = web.getUrl().toString();
         @Override
         protected Void doInBackground(Void... params) {
 
-
             try {
-
                 Document doc = Jsoup.connect(currentURL).get();
-              //  HTMLTExt = doc.text();
-               Elements paragraphs = doc.select("p");
+                //  HTMLTExt = doc.text();
+                Elements paragraphs = doc.select("p");
                 HTMLTitel = doc.title();
                 for (Element p : paragraphs) {
                     if (p.text().length() > 100) {
 
                         HTMLTExt += p.text();
+                        HTMLTExt += "\n\n";
                     }
 
                 }
@@ -87,13 +85,13 @@ public class TextFromNetAct extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-           // textLoader.setUrl(this.web.getUrl());
+            // textLoader.setUrl(this.web.getUrl());
 
             Intent goToReading = new Intent(getApplicationContext(), ReadingTest.class);
 
             goToReading.putExtra("TextToLoad", HTMLTExt);
             goToReading.putExtra("Titel", HTMLTitel);
-
+            goToReading.putExtra("test", "readingTestWebView");
             startActivity(goToReading);
         }
     }

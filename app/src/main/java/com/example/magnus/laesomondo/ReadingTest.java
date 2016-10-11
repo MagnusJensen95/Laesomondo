@@ -1,5 +1,6 @@
 package com.example.magnus.laesomondo;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -27,11 +28,13 @@ public class ReadingTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading_test);
-
         final double readingTestReadingTimeStart = System.currentTimeMillis();
 
-        Bundle textToRead = getIntent().getExtras();
+        //TODO: Somehow need to differentiate between different reading tests.
+        //TODO: Use the intent extras "readingTestPrerequisites" and "readingTestWebView" for now.
+        //TODO: Maybe switch case?
 
+        Bundle textToRead = getIntent().getExtras();
         toLoad = textToRead.getString("TextToLoad");
         textTitle = textToRead.getString("Titel");
 
