@@ -55,9 +55,9 @@ public class TextFromNetAct extends AppCompatActivity {
 
     private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
 
-            String HTMLTExt = "";
-            String HTMLTitel;
-            String currentURL = web.getUrl().toString();
+        String HTMLTExt = "";
+        String HTMLTitel;
+        String currentURL = web.getUrl().toString();
         @Override
         protected Void doInBackground(Void... params) {
 
@@ -72,6 +72,7 @@ public class TextFromNetAct extends AppCompatActivity {
                     if (p.text().length() > 100) {
 
                         HTMLTExt += p.text();
+                        HTMLTExt += "\n\n";
                     }
 
                 }
@@ -87,7 +88,7 @@ public class TextFromNetAct extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-           // textLoader.setUrl(this.web.getUrl());
+            // textLoader.setUrl(this.web.getUrl());
 
             Intent goToReading = new Intent(getApplicationContext(), ReadingTest.class);
 

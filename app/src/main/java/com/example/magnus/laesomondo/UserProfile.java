@@ -17,15 +17,11 @@ public class UserProfile extends AppCompatActivity {
 
         DBHandler db = new DBHandler(this);
 
-
         resultater = (TextView) findViewById(R.id.grafTekst);
 
         ArrayList<Result> data = db.getContent();
 
         resultater.setText(data.get(0).getTitel());
-
-
-
 
     }
 }
