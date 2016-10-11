@@ -105,11 +105,15 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
     }
 
     public void startReadingTest(View v) {
-        //cm.start();
+
+        //TODO:Below needs severe overhaul. More texts in strings resource, random or determined way
+        //TODO:of loading differenting texts, title for textstring as well.
+        String readingText = getString(R.string.readingTestReadingMaterial);
 
         Intent intent = new Intent(getBaseContext(), ReadingTest.class);
         intent.putExtra("timeStart", System.currentTimeMillis());
-        intent.putExtra("test", "readingTestPrerequisites");
+        intent.putExtra("readingTestType", "readingTestOriginal");
+        intent.putExtra("TextToLoad", readingText);
         startActivity(intent);
     }
     //implement functionality, as well as cm start button (stop button in reading test).
