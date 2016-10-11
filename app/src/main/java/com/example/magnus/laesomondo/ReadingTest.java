@@ -23,43 +23,54 @@ public class ReadingTest extends AppCompatActivity {
 
     String toLoad;
     String textTitle;
+    Bundle bundle;
+    String typeReadingTest;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading_test);
         final double readingTestReadingTimeStart = System.currentTimeMillis();
+        tv = (TextView) findViewById(R.id.readingTestReadingMaterial);
 
-        //TODO: Somehow need to differentiate between different reading tests.
-        //TODO: Use the intent extras "readingTestPrerequisites" and "readingTestWebView" for now.
-        //TODO: Maybe switch case?
+        bundle = getIntent().getExtras();
+        typeReadingTest = bundle.getString("readingTestType");
 
-        Bundle textToRead = getIntent().getExtras();
-        toLoad = textToRead.getString("TextToLoad");
-        textTitle = textToRead.getString("Titel");
+        final Intent intent = new Intent(getBaseContext(), SummaryPopUp.class);
 
-        TextView tv = (TextView) findViewById(R.id.readingTestReadingMaterial);
-
-        String[] wordArray = toLoad.split("\\s+");
-
-        final int wordCount = wordArray.length;
-
-
-        tv.setText(toLoad);
-
+        int wordCount=0;
+        String[] wordArray;
+        switch (typeReadingTest) {
+            case "readingTestOriginal":
+                toLoad = bundle.getString("TextToLoad");
+                //textTitle = bundle.getString("Titel");
+                wordArray = toLoad.split("\\s+");
+                wordCount = wordArray.length;
+                //intent.putExtra("TextTitel", textTitle);
+                intent.putExtra("WordsInText", wordCount);
+                tv.setText(toLoad);
+                break;
+            case "readingTestNetTest":
+                toLoad = bundle.getString("TextToLoad");
+                textTitle = bundle.getString("Titel");
+                wordArray = toLoad.split("\\s+");
+                wordCount = wordArray.length;
+                intent.putExtra("TextTitel", textTitle);
+                intent.putExtra("WordsInText", wordCount);
+                tv.setText(toLoad);
+                break;
+            default:
+                break;
+        }
 
         tv.setMovementMethod(new ScrollingMovementMethod());
-
         Button readingTestStopShowPopUp = (Button) findViewById(R.id.readingTestStopButton);
         readingTestStopShowPopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 double readingTestReadingTimeStop = System.currentTimeMillis()-readingTestReadingTimeStart;
-                Intent intent = new Intent(getBaseContext(), SummaryPopUp.class);
                 intent.putExtra("ReadingTime", readingTestReadingTimeStop);
-                intent.putExtra("WordsInText", wordCount);
-                intent.putExtra("TextTitel", textTitle);
-
                 startActivity(intent);
             }
         });

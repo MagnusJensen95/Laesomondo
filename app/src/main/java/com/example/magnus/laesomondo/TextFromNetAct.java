@@ -91,7 +91,7 @@ public class TextFromNetAct extends AppCompatActivity {
 
             goToReading.putExtra("TextToLoad", HTMLTExt);
             goToReading.putExtra("Titel", HTMLTitel);
-            goToReading.putExtra("test", "readingTestWebView");
+            goToReading.putExtra("readingTestType", "readingTestNetTest");
             startActivity(goToReading);
         }
     }
