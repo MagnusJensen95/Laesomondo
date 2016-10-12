@@ -47,7 +47,7 @@ public class ReadingTest extends AppCompatActivity {
                 //textTitle = bundle.getString("Titel");
                 wordArray = toLoad.split("\\s+");
                 wordCount = wordArray.length;
-                //intent.putExtra("TextTitel", textTitle);
+                intent.putExtra("TextTitle", textTitle);
                 intent.putExtra("WordsInText", wordCount);
                 tv.setText(toLoad);
                 break;
@@ -56,7 +56,7 @@ public class ReadingTest extends AppCompatActivity {
                 textTitle = bundle.getString("Titel");
                 wordArray = toLoad.split("\\s+");
                 wordCount = wordArray.length;
-                intent.putExtra("TextTitel", textTitle);
+                intent.putExtra("TextTitle", textTitle);
                 intent.putExtra("WordsInText", wordCount);
                 tv.setText(toLoad);
                 break;
