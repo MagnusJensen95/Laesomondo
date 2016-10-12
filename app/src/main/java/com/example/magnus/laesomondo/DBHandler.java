@@ -34,6 +34,8 @@ public class DBHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         db.execSQL("create table " + TABLE_WPM + " ("
                 + titel + " TEXT, "
                 + ord + " INTEGER, " + minutter + " REAL)");

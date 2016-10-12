@@ -23,9 +23,15 @@ public class UserProfile extends AppCompatActivity {
         ArrayList<Result> data = db.getContent();
         Log.i("DEBUG ARRAY LENGTH: ", ""+data.size());
 
-        Result testResult = data.get(7);
-        Log.i("Testdata: ", ""+testResult.getTitel());
-        resultater.setText(data.get(0).getTitel());
+        String titelsInDB = "";
+        for (int i = 0; i < data.size(); i++){
+
+            titelsInDB += data.get(i).getTitel();
+            titelsInDB += "\n";
+
+        }
+
+        resultater.setText(titelsInDB);
 
     }
 }
