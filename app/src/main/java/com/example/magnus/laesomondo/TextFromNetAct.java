@@ -55,7 +55,7 @@ public class TextFromNetAct extends AppCompatActivity {
     private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
 
         String HTMLTExt = "";
-        String HTMLTitel;
+        String HTMLTitel = "";
         String currentURL = web.getUrl().toString();
         @Override
         protected Void doInBackground(Void... params) {
@@ -64,7 +64,7 @@ public class TextFromNetAct extends AppCompatActivity {
                 Document doc = Jsoup.connect(currentURL).get();
                 //  HTMLTExt = doc.text();
                 Elements paragraphs = doc.select("p");
-                HTMLTitel = doc.title();
+                HTMLTitel += doc.title();
                 for (Element p : paragraphs) {
                     if (p.text().length() > 100) {
 

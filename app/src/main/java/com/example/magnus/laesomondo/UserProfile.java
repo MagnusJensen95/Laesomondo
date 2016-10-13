@@ -2,6 +2,7 @@ package com.example.magnus.laesomondo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,8 +21,17 @@ public class UserProfile extends AppCompatActivity {
         resultater = (TextView) findViewById(R.id.grafTekst);
 
         ArrayList<Result> data = db.getContent();
+        Log.i("DEBUG ARRAY LENGTH: ", ""+data.size());
 
-        resultater.setText(data.get(0).getTitel());
+        String titelsInDB = "";
+        for (int i = 0; i < data.size(); i++){
+
+            titelsInDB += data.get(i).getTitel();
+            titelsInDB += "\n";
+
+        }
+
+        resultater.setText(titelsInDB);
 
     }
 }

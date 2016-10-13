@@ -34,6 +34,8 @@ public class DBHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         db.execSQL("create table " + TABLE_WPM + " ("
                 + titel + " TEXT, "
                 + ord + " INTEGER, " + minutter + " REAL)");
@@ -45,12 +47,12 @@ public class DBHandler extends SQLiteOpenHelper{
         this.onCreate(db);
     }
 
-    public void addTestResult (String titel, int words, double minutes){
+    public void addTestResult (String texttitel, int words, double minutes){
 
             SQLiteDatabase db = getWritableDatabase();
 
             ContentValues række = new ContentValues();
-            række.put(titel, titel);
+            række.put(titel, texttitel);
             række.put(ord, words);
             række.put(minutter, minutes);
             db.insert(TABLE_WPM, null, række);
@@ -63,17 +65,17 @@ public class DBHandler extends SQLiteOpenHelper{
     public ArrayList<Result> getContent(){
 
         ArrayList<Result> results = new ArrayList<>();
-        String[] kolonner = {DBHandler.titel, DBHandler.ord, DBHandler.minutter};
+        String[] kolonner = {titel, ord, minutter};
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables(TABLE_WPM);
 
 
-        Cursor cursor = builder.query(db, kolonner, null, null, null, null, null);
+        Cursor cursor = builder.query(db, null, null, null, null, null, null);
         if(cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 Log.i("DEBUG", "Inside bruh");
-                Log.i("DEBUG", cursor.getString(0));
+                //Log.i("DEBUG", cursor.getString(0));
                 results.add(new Result(cursor.getString(0), cursor.getInt(1), cursor.getDouble(2)));
                 cursor.moveToNext();
             }
