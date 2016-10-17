@@ -10,19 +10,19 @@
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
-    <style name="AppTheme.CustomPopUpTheme">
+    <style name="AppTheme.CustomPopUpTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
-    <style name="defaultText">
+    <style name="defaultText" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textSize">25dp</item>
         <item name="android:typeface">serif</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textStyle"> bold</item>
     </style>
 
-    <style name="defaultButton">
+    <style name="defaultButton" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">15dp</item>

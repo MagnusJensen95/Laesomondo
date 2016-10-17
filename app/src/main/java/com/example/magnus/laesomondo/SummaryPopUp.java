@@ -20,6 +20,8 @@ public class SummaryPopUp extends AppCompatActivity {
 
     Button tryAgain;
     Button profile;
+    TextView scoreView;
+    DisplayMetrics dm;
 
     Double timeMillis;
     int wordsInText;
@@ -35,21 +37,18 @@ public class SummaryPopUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summarypopup);
 
-        DisplayMetrics dm = new DisplayMetrics();
+        dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-
         tryAgain = (Button)findViewById(R.id.TryAgainButtonText);
         profile = (Button)findViewById(R.id.summaryPopUpTBD);
+        scoreView = (TextView) findViewById(R.id.summaryPopUpScoreTBD);
 
         getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
 
-        TextView scoreView = (TextView) findViewById(R.id.summaryPopUpScoreTBD);
-        scoreView.setTextColor(Color.WHITE);
-
         Bundle extras = getIntent().getExtras();
-         timeMillis = extras.getDouble("ReadingTime");
-         wordsInText = extras.getInt("WordsIntText");
-         textTitle = extras.getString("TextTitle");
+        timeMillis = extras.getDouble("ReadingTime");
+        wordsInText = extras.getInt("WordsIntText");
+        textTitle = extras.getString("TextTitle");
 
         int timeMinutes = (int) Math.floor((timeMillis/1000)/60);
         int timeSeconds = (int) Math.floor(timeMillis/1000)%60;
