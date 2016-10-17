@@ -11,13 +11,13 @@
     tools:context="com.example.magnus.laesomondo.ReadingTestPrerequisites">
 
     <TextView
+        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/readingTestPrerequisitesReadingTime"
         android:id="@+id/readingTestPrerequisitesReadingTime"
         android:layout_alignParentTop="true"
-        style="@style/defaultText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="111dp"/>
 
@@ -43,6 +43,7 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -50,7 +51,6 @@
         android:id="@+id/readingTestPrerequisitesReadingDifficulty"
         android:layout_below="@+id/readingTestPrerequisitesTimeSlider"
         android:layout_centerHorizontal="true"
-        style="@style/defaultText"
         android:layout_marginTop="50dp"/>
 
     <SeekBar

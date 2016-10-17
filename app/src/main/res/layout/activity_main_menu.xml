@@ -10,11 +10,11 @@
     tools:context="com.example.magnus.laesomondo.MainMenu">
 
     <TextView
+        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/mainMenuTitle"
-        style="@style/defaultText"
         android:id="@+id/mainMenuUserLoggedInTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

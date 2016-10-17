@@ -8,26 +8,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-
     tools:context="com.example.magnus.laesomondo.UserProfile">
 
     <TextView
+        style="@style/defaultText"
         android:padding="10dp"
         android:text="Navn"
-
-        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/myPageBrugernavn"/>
 
     <TextView
-            android:text="@string/udvikling"
-            style="@style/defaultText"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="200dp"
-            android:id="@+id/grafTekst" />
-
-
+        style="@style/defaultText"
+        android:text="@string/udvikling"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="200dp"
+        android:id="@+id/grafTekst" />
 </LinearLayout>
