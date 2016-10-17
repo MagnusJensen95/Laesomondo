@@ -15,12 +15,6 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
-    <style name="graphText">
-        <item name="android:textSize">35dp</item>
-        <item name="android:textColor">#d0df47</item>
-        <item name="android:textStyle"> bold|italic</item>
-    </style>
-
     <style name="defaultText">
         <item name="android:textSize">25dp</item>
         <item name="android:typeface">serif</item>
@@ -33,17 +27,5 @@
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">15dp</item>
     </style>
-
-    <style name="usernameText">
-        <item name="android:textSize">25dp</item>
-        <item name="android:textStyle"> bold|</item>
-        <item name="android:textColor">#b63539</item>
-    </style>
-
-    <style name="seekBarTheme" parent="Widget.AppCompat.SeekBar">
-        <item name="android:colorAccent">#ffae00</item>
-    </style>
-
-
 
 </resources>
