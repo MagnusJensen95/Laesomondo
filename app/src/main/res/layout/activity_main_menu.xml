@@ -7,7 +7,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/baggrundsstest"
     tools:context="com.example.magnus.laesomondo.MainMenu">
 
     <TextView
@@ -16,12 +15,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/mainMenuTitle"
         style="@style/defaultText"
-
         android:id="@+id/mainMenuUserLoggedInTitle"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp" />
 
     <Button
+        style="@style/defaultButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/mainMenuReadingTestButton"
@@ -29,13 +29,10 @@
         android:layout_below="@+id/mainMenuUserLoggedInTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="123dp"
-        android:onClick="onLaeseTest"
-        android:background="#11ff00"
-        style="@style/defaultText"
-        android:textColor="#000000"
-        android:textSize="15dp"/>
+        android:onClick="onLaeseTest" />
 
     <Button
+        style="@style/defaultButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_menu_tekst_fra_nettet"
@@ -43,13 +40,10 @@
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="onWebContent"
-        android:background="#11ff00"
-        style="@style/defaultText"
-        android:textColor="#000000"
-        android:textSize="15dp"/>
+        android:onClick="onWebContent"/>
 
     <Button
+        style="@style/defaultButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/mainMenuLogInButton"
@@ -57,10 +51,6 @@
         android:layout_below="@+id/mainMenuWebcontentButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="onLogInd"
-        android:background="#11ff00"
-        style="@style/defaultText"
-        android:textColor="#000000"
-        android:textSize="15dp"/>
+        android:onClick="onLogInd"/>
 
 </RelativeLayout>
