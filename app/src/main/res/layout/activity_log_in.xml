@@ -6,17 +6,15 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-
-    android:background="@drawable/baggrundsstest"
     tools:context="com.example.magnus.laesomondo.LogIn">
 
     <TextView
+        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/logInUserNameButton"
         android:id="@+id/logInUserNameButton"
-        style="@style/defaultText"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
@@ -24,11 +22,11 @@
         />
 
     <TextView
+        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/logInPasswordButton"
-        style="@style/defaultText"
         android:id="@+id/logInPasswordButton"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/logInUserNameButton" />
@@ -51,6 +49,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
+        style="@style/defaultButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/logInLogInButton"
@@ -58,9 +57,5 @@
         android:layout_below="@+id/passwordField"
         android:layout_toEndOf="@+id/logInPasswordButton"
         android:layout_marginTop="65dp"
-        android:onClick="onLoginAttempt"
-        android:background="#11ff00"
-        style="@style/defaultText"
-        android:textColor="#000000"
-        android:textSize="15dp"/>
+        android:onClick="onLoginAttempt"/>
 </RelativeLayout>

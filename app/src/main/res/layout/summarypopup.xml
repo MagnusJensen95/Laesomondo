@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/baggrundsstest"
-    >
+    android:layout_height="match_parent">
 
     <TextView
+        style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/summaryPopUpScoreTBD"
-        style="@style/defaultText"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -20,40 +18,28 @@
         android:layout_below="@+id/summaryPopUpScoreTBD"
         android:layout_alignParentStart="true"
         android:weightSum="1"
-       android:paddingLeft="20dp"
-        >
+        android:gravity="center">
 
         <Button
+            style="@style/defaultButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Main Menu"
             android:id="@+id/TryAgainButtonText"
             android:layout_below="@+id/summaryPopUpScoreTBD"
             android:layout_alignParentStart="true"
-            android:background="#11ff00"
-            style="@style/defaultText"
-            android:textColor="#000000"
-            android:textSize="15dp"
             android:layout_weight="0.4"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
             android:onClick="onBackToMenu"
             />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"/>
-
         <Button
+            style="@style/defaultButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/summaryPopUpTBD"
             android:id="@+id/summaryPopUpTBD"
-            android:background="#11ff00"
-            style="@style/defaultText"
-            android:textColor="#000000"
-            android:textSize="15dp"
             android:layout_weight="0.4"
-
             android:onClick="onProfile"
             />
     </LinearLayout>
