@@ -24,17 +24,6 @@
         style="@style/defaultButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mainMenuReadingTestButton"
-        android:id="@+id/mainMenuUserLoggedInReadingTestButton"
-        android:layout_below="@+id/mainMenuUserLoggedInTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="123dp"
-        android:onClick="onLaeseTest" />
-
-    <Button
-        style="@style/defaultButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/main_menu_tekst_fra_nettet"
         android:id="@+id/mainMenuWebcontentButton"
         android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
@@ -50,7 +39,18 @@
         android:id="@+id/mainMenuLogInButton"
         android:layout_below="@+id/mainMenuWebcontentButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         android:onClick="onLogInd"/>
+
+    <Button
+        style="@style/defaultButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mainMenuReadingTestButton"
+        android:id="@+id/mainMenuUserLoggedInReadingTestButton"
+        android:layout_marginTop="50dp"
+        android:onClick="onLaeseTest"
+        android:layout_below="@+id/mainMenuUserLoggedInTitle"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
