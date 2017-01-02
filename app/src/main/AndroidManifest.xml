@@ -27,6 +27,9 @@
             android:theme="@style/AppTheme.CustomPopUpTheme" />
         <activity android:name=".UserProfile" />
         <activity android:name=".TextFromNetAct"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1f733e7dc8b38bf7ee9ecfea69ecad306dcb3910" />
     </application>
 
 </manifest>
