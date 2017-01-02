@@ -30,7 +30,6 @@ public class TextFromNetAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_from_net);
 
-
         web = (WebView) findViewById(R.id.webviewContent);
 
         web.setWebViewClient(new WebViewClient() {
