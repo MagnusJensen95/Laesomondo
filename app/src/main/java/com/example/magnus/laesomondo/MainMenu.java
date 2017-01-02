@@ -1,6 +1,7 @@
 package com.example.magnus.laesomondo;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,13 +15,24 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+        boolean emulator = Build.PRODUCT.contains("sdk") || Build.MODEL.contains("Emulator");
+        if(!emulator){
+
+            Fabric.with(this, new Crashlytics());
+           // throw new RuntimeException("This is a testcrash");
+        }
+
+
         setContentView(R.layout.activity_main_menu);
+
     }
 
     public void onLaeseTest(View view){
         Intent intent = new Intent(this, ReadingTestPrerequisites.class);
+
         startActivity(intent);
+
+
     }
 
     public void onLogInd(View view){

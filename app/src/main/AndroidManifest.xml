@@ -29,7 +29,7 @@
         <activity android:name=".TextFromNetAct"></activity>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="1f733e7dc8b38bf7ee9ecfea69ecad306dcb3910" />
+            android:value="68098b5efae56fefd5f95043e4c6e4dbf4a0482a" />
     </application>
 
 </manifest>
