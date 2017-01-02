@@ -1,24 +1,31 @@
 package com.example.magnus.laesomondo;
 
+import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class UserProfile extends AppCompatActivity {
+public class UserProfile extends Fragment {
 
     TextView resultater;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        DBHandler db = new DBHandler(this);
+        View v = inflater.inflate(R.layout.activity_user_profile, container, false);
 
-        resultater = (TextView) findViewById(R.id.grafTekst);
+
+        DBHandler db = new DBHandler(getActivity());
+
+        resultater = (TextView) v.findViewById(R.id.grafTekst);
 
         ArrayList<Result> data = db.getContent();
         Log.i("DEBUG ARRAY LENGTH: ", ""+data.size());
@@ -33,5 +40,9 @@ public class UserProfile extends AppCompatActivity {
 
         resultater.setText(titelsInDB);
 
+
+        return v;
     }
+
+
 }

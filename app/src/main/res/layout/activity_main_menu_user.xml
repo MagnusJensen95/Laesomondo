@@ -9,16 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.magnus.laesomondo.MainMenuUser">
 
-    <TextView
-        style="@style/defaultText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/mainMenuUserLoggedInTitle"
-        android:id="@+id/mainMenuUserLoggedInTitle"
-        android:textSize="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
 
     <Button
         style="@style/defaultButton"
@@ -27,7 +17,6 @@
         android:text="@string/mainMenuUserLoggedInReadingTestButton"
         android:id="@+id/mainMenuUserLoggedInReadingTestButton"
         android:layout_marginTop="72dp"
-        android:layout_below="@+id/mainMenuUserLoggedInTitle"
         android:layout_centerHorizontal="true"
         android:onClick="onLaesetest"/>
 

@@ -1,12 +1,16 @@
 package com.example.magnus.laesomondo;
 
+import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -19,18 +23,19 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class TextFromNetAct extends AppCompatActivity {
+public class TextFromNetAct extends Fragment {
 
     WebView web;
     Button load;
 
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_text_from_net);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        web = (WebView) findViewById(R.id.webviewContent);
+        View v = inflater.inflate(R.layout.activity_text_from_net, container, false);
+
+
+        web = (WebView) v.findViewById(R.id.webviewContent);
 
         web.setWebViewClient(new WebViewClient() {
             @Override
@@ -41,9 +46,11 @@ public class TextFromNetAct extends AppCompatActivity {
 
         web.loadUrl("http://www.google.com");
 
-        load = (Button)findViewById(R.id.loadPageButton);
+        load = (Button)v.findViewById(R.id.loadPageButton);
 
+        return v;
     }
+
 
     public void onLoadContent(View v){
 
@@ -86,7 +93,7 @@ public class TextFromNetAct extends AppCompatActivity {
 
             // textLoader.setUrl(this.web.getUrl());
 
-            Intent goToReading = new Intent(getApplicationContext(), ReadingTest.class);
+            Intent goToReading = new Intent(getActivity().getApplicationContext(), ReadingTest.class);
 
             goToReading.putExtra("TextToLoad", HTMLTExt);
             goToReading.putExtra("Titel", HTMLTitel);

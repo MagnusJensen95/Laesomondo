@@ -1,11 +1,15 @@
 package com.example.magnus.laesomondo;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.SeekBar;
@@ -13,7 +17,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ReadingTestPrerequisites extends AppCompatActivity {
+public class ReadingTestPrerequisites extends Fragment {
 
     SeekBar seekBarTime;
     TextView seekBarTimeValue;
@@ -21,13 +25,13 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
     SeekBar seekBarDifficulty;
     TextView seekBarDifficultyValue;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reading_test_prerequisites);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.activity_reading_test_prerequisites, container, false);
 
-        SeekBar seekBarTime = (SeekBar) findViewById(R.id.readingTestPrerequisitesTimeSlider);
-        final TextView seekBarTimeValue = (TextView) findViewById(R.id.seekBarTimeValue);
+        SeekBar seekBarTime = (SeekBar) view.findViewById(R.id.readingTestPrerequisitesTimeSlider);
+        final TextView seekBarTimeValue = (TextView) view.findViewById(R.id.seekBarTimeValue);
         seekBarTimeValue.setText(String.valueOf(seekBarTime.getProgress()));
 
         seekBarTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -50,8 +54,8 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
             }
         });
 
-        SeekBar seekBarDifficulty = (SeekBar) findViewById(R.id.readingTestPrerequisitesDifficultySlider);
-        final TextView seekBarDifficultyValue = (TextView) findViewById(R.id.seekBarDifficultyValue);
+        SeekBar seekBarDifficulty = (SeekBar) view.findViewById(R.id.readingTestPrerequisitesDifficultySlider);
+        final TextView seekBarDifficultyValue = (TextView) view.findViewById(R.id.seekBarDifficultyValue);
         switch(seekBarDifficulty.getProgress()){
             case 0:
                 seekBarDifficultyValue.setText("Let øvet");
@@ -102,7 +106,12 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
                 // TODO Auto-generated method stub
             }
         });
+
+
+
+        return view;
     }
+
 
     public void startReadingTest(View v) {
 
@@ -110,7 +119,7 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
         //TODO:of loading differentiating texts, title for textstring as well.
         String readingText = getString(R.string.readingTestReadingMaterial);
 
-        Intent intent = new Intent(getBaseContext(), ReadingTest.class);
+        Intent intent = new Intent(getActivity().getApplicationContext(), ReadingTest.class);
         intent.putExtra("readingTestType", "readingTestOriginal");
         intent.putExtra("TextToLoad", readingText);
         intent.putExtra("TextTitle", "Default Titel");

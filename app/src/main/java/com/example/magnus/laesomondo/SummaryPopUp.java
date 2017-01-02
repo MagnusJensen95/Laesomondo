@@ -1,22 +1,26 @@
 package com.example.magnus.laesomondo;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.ViewStubCompat;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
 /**
  * Created by buller on 16/09/2016.
  */
-public class SummaryPopUp extends AppCompatActivity {
+public class SummaryPopUp extends Fragment {
 
     Button tryAgain;
     Button profile;
@@ -32,20 +36,22 @@ public class SummaryPopUp extends AppCompatActivity {
     //This is due to us having more than one test. As such,
     //It cannot lead back to ReadingTest prereqs, since that
     //is specific to that one text, and this class isn't.
+
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.summarypopup);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         View v = inflater.inflate(R.layout.summarypopup, container, false);
 
         dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        tryAgain = (Button)findViewById(R.id.TryAgainButtonText);
-        profile = (Button)findViewById(R.id.summaryPopUpTBD);
-        scoreView = (TextView) findViewById(R.id.summaryPopUpScoreTBD);
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        tryAgain = (Button)v.findViewById(R.id.TryAgainButtonText);
+        profile = (Button)v.findViewById(R.id.summaryPopUpTBD);
+        scoreView = (TextView) v.findViewById(R.id.summaryPopUpScoreTBD);
 
-        getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
+        getActivity().getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
 
-        Bundle extras = getIntent().getExtras();
+        Bundle extras = getArguments();
         timeMillis = extras.getDouble("ReadingTime");
         wordsInText = extras.getInt("WordsIntText");
         textTitle = extras.getString("TextTitle");
@@ -55,32 +61,31 @@ public class SummaryPopUp extends AppCompatActivity {
 
         scoreView.setText(getString(R.string.summaryPopUpReadingTime, timeMinutes, timeSeconds));
 
-        DBHandler database = new DBHandler(this);
+        DBHandler database = new DBHandler(getActivity());
 
         database.addTestResult(textTitle, wordsInText, timeMillis);
+
+        return v;
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
 
-        Intent switchActivity = new Intent(this, MainMenu.class);
-        startActivity(switchActivity);
+        getFragmentManager().beginTransaction().replace(R.id.container_main, new MainMenu());
     }
+
+
 
     public void onBackToMenu(View v){
         //TODO: Create variable for whether or not user is logged in or not.
         //TODO: If user is NOT logged in, remove Profile button, and take back
         //TODO: to REGULAR MAIN MENU (MainMenu.class).
-        Intent goTo = new Intent(this, MainMenu.class);
-
-        startActivity(goTo);
+        getFragmentManager().beginTransaction().replace(R.id.container_main, new MainMenu());
     }
 
     public void onProfile(View v){
 
-        Intent goTo = new Intent(this, UserProfile.class);
-
-        startActivity(goTo);
+        getFragmentManager().beginTransaction().replace(R.id.container_main, new UserProfile());
     }
 }
