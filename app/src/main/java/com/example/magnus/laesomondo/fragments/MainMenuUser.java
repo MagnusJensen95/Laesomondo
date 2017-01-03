@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,18 @@ public class MainMenuUser extends Fragment {
         myProfile.setOnClickListener(listener);
         logOut.setOnClickListener(listener);
         readingTest.setOnClickListener(listener);
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK)
+                {
+                    return true;
+                }
+                return false;
+            }
+        });
 
         return view;
     }
