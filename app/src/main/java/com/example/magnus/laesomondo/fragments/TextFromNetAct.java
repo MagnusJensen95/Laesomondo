@@ -16,6 +16,7 @@ import android.widget.Button;
 
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.activities.ReadingTest;
+import com.example.magnus.laesomondo.dataclasses.LixCalculator;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -35,7 +36,6 @@ public class TextFromNetAct extends Fragment {
 
         View v = inflater.inflate(R.layout.activity_text_from_net, container, false);
 
-
         web = (WebView) v.findViewById(R.id.webviewContent);
 
         web.setWebViewClient(new WebViewClient() {
@@ -48,8 +48,6 @@ public class TextFromNetAct extends Fragment {
         web.loadUrl("http://www.google.com");
 
         load = (Button)v.findViewById(R.id.loadPageButton);
-
-
 
         load.setOnClickListener(new View.OnClickListener() {
             @Override
