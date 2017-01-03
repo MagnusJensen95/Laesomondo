@@ -16,7 +16,7 @@ import com.example.magnus.laesomondo.dataclasses.Result;
 import java.util.ArrayList;
 
 public class UserProfile extends Fragment {
-
+//hej
     TextView resultater;
 
     @Nullable
