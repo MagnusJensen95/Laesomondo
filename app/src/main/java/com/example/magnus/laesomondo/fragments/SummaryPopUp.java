@@ -1,21 +1,17 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.fragments;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ButtonBarLayout;
-import android.support.v7.widget.ViewStubCompat;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.dataclasses.DBHandler;
 
 /**
  * Created by buller on 16/09/2016.

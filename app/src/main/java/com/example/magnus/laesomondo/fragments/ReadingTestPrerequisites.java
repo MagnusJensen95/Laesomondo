@@ -1,21 +1,17 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.activities.ReadingTest;
 
 public class ReadingTestPrerequisites extends Fragment {
 

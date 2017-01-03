@@ -1,11 +1,9 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +13,9 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+
+import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.activities.ReadingTest;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

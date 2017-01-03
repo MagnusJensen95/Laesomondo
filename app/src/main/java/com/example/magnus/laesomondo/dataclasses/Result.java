@@ -1,4 +1,4 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.dataclasses;
 
 /**
  * Created by Magnus on 10-10-2016.

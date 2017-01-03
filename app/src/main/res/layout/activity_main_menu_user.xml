@@ -7,24 +7,49 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.magnus.laesomondo.MainMenuUser">
+    tools:context="com.example.magnus.laesomondo.fragments.MainMenuUser">
 
 
-    <Button
-        style="@style/defaultButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mainMenuUserLoggedInReadingTestButton"
-        android:id="@+id/mainMenuUserLoggedInReadingTestButton"
-        android:layout_marginTop="72dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="onLaesetest"/>
+        android:weightSum="1"
+        android:gravity="center">
+
+
+        <Button
+            style="@style/defaultButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mainMenuUserLoggedInReadingTestButton"
+            android:id="@+id/mainMenuUserLoggedInReadingTestButton"
+            android:layout_weight="0.3"
+            android:layout_marginRight="10dp"
+
+
+
+            />
+
+        <Button
+            style="@style/defaultButton"
+            android:text="Tekst fra Nettet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/mainMenuUserLoggedInTextFromNet"
+            android:layout_weight="0.3"
+            android:layout_marginLeft="10dp"
+
+            />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
+
         android:layout_alignParentStart="true"
         android:layout_marginTop="106dp"
         android:weightSum="1"
@@ -37,9 +62,10 @@
             android:text="@string/mainMenuUserLoggedInMyProfile"
             android:id="@+id/mainMenuUserLoggedInMyProfile"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.4"
-            android:layout_marginRight="@dimen/activity_vertical_margin"
-            android:onClick="onMyProfile"/>
+            android:layout_weight="0.3"
+            android:layout_marginRight="10dp"
+
+            />
 
         <Button
             style="@style/defaultButton"
@@ -48,7 +74,12 @@
             android:text="@string/mainMenuUserLoggedInLogOut"
             android:id="@+id/mainMenuUserLoggedInLogOut"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.4"
-            android:onClick="onLogOut" />
+            android:layout_weight="0.3"
+            android:layout_marginLeft="10dp"
+            />
     </LinearLayout>
+
+
+
+
 </RelativeLayout>

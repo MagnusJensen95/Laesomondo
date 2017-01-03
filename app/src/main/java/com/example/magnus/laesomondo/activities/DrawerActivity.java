@@ -1,12 +1,8 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.activities;
 
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
+import com.example.magnus.laesomondo.fragments.MainMenu;
+import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.fragments.ReadingTestPrerequisites;
+import com.example.magnus.laesomondo.fragments.TextFromNetAct;
+import com.example.magnus.laesomondo.fragments.UserProfile;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -66,6 +67,7 @@ public class DrawerActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
     }
 
@@ -100,13 +102,16 @@ public class DrawerActivity extends AppCompatActivity
 
 
         if (id == R.id.myProfileDrawer) {
-            manager.beginTransaction().replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
+            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
         } else if (id == R.id.readingTestDrawer) {
-            manager.beginTransaction().replace(R.id.container_main, new ReadingTestPrerequisites()).addToBackStack("").commit();
+            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new ReadingTestPrerequisites()).addToBackStack("").commit();
 
         } else if (id == R.id.textFromNetDrawer) {
 
-            manager.beginTransaction().replace(R.id.container_main, new TextFromNetAct()).addToBackStack("").commit();
+            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new TextFromNetAct()).addToBackStack("").commit();
 
         } else if (id == R.id.aboutDrawer) {
 

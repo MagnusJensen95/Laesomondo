@@ -1,4 +1,4 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.dataclasses;
 
 import android.content.ContentValues;
 import android.content.Context;
