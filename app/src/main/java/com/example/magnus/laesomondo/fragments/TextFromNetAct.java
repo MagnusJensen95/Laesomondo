@@ -49,15 +49,18 @@ public class TextFromNetAct extends Fragment {
 
         load = (Button)v.findViewById(R.id.loadPageButton);
 
+
+
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new fetchHTMLText().execute();
+            }
+        });
+
         return v;
     }
 
-
-    public void onLoadContent(View v){
-
-        new fetchHTMLText().execute();
-
-    }
 
     private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
 

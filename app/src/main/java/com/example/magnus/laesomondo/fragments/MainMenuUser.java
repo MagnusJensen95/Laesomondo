@@ -57,7 +57,7 @@ public class MainMenuUser extends Fragment {
 
                         getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                                 R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
-                                new MainMenu()).commit();
+                                new MainMenu()).addToBackStack(null).commit();
 
                         break;
 
@@ -80,6 +80,7 @@ public class MainMenuUser extends Fragment {
 
         return view;
     }
+
 
 
 
