@@ -52,7 +52,7 @@ public class ReadingTest extends Fragment {
                 //textTitle = bundle.getString("Titel");
                 wordArray = toLoad.split("\\s+");
                 wordCount = wordArray.length;
-                toSummary.putString("TextTitle", textTitle);
+                toSummary.putString("TextTitle", "Lorem Ipsum");
                 toSummary.putInt("WordsInText", wordCount);
                 tv.setText(toLoad);
                 break;

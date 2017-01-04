@@ -51,14 +51,38 @@ public class SummaryPopUp extends DialogFragment {
        // dm = new DisplayMetrics();
         //getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         tryAgain = (Button)v.findViewById(R.id.TryAgainButtonText);
+        tryAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                                R.animator.exit_to_right, R.animator.enter_from_right )
+                        .replace(R.id.container_main,
+                                new ReadingTestPrerequisites()).addToBackStack(null).commit();
+                dismiss();
+            }
+        });
         profile = (Button)v.findViewById(R.id.summaryPopUpTBD);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                                R.animator.exit_to_right, R.animator.enter_from_right )
+                        .replace(R.id.container_main,
+                                new UserProfile()).addToBackStack(null).commit();
+                dismiss();
+
+            }
+        });
         scoreView = (TextView) v.findViewById(R.id.summaryPopUpScoreTBD);
 
        // getActivity().getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
 
         Bundle extras = getArguments();
         timeMillis = extras.getDouble("ReadingTime");
-        wordsInText = extras.getInt("WordsIntText");
+        wordsInText = extras.getInt("WordsInText");
         textTitle = extras.getString("TextTitle");
         textText = extras.getString("TextToLoad");
 
@@ -69,8 +93,8 @@ public class SummaryPopUp extends DialogFragment {
 
         DBHandler database = new DBHandler(getActivity());
 
-        database.addTestResult(textTitle, wordsInText, timeMillis, LixCalculator.calcLix(textText),
-                StatisticsCalculator.calculateComparativeReadingTime(timeMillis, wordsInText)); //TODO: change the 2 methods to return actual values.
+        database.addTestResult(textTitle, wordsInText, timeMillis/1000, LixCalculator.calcLix(textText),
+                StatisticsCalculator.calculateComparativeReadingTime(timeMillis/1000, wordsInText)); //TODO: change the 2 methods to return actual values.
 
 
       //  getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -88,17 +112,8 @@ public class SummaryPopUp extends DialogFragment {
 
 
 
-    public void onBackToMenu(View v){
-        //TODO: Create variable for whether or not user is logged in or not.
-        //TODO: If user is NOT logged in, remove Profile button, and take back
-        //TODO: to REGULAR MAIN MENU (MainMenu.class).
-        getFragmentManager().beginTransaction().replace(R.id.container_main, new MainMenu());
-    }
 
-    public void onProfile(View v){
 
-        getFragmentManager().beginTransaction().replace(R.id.container_main, new UserProfile());
-    }
 
     @Override
     public void onStart() {

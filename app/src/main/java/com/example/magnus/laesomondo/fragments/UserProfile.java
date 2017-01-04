@@ -36,7 +36,7 @@ public class UserProfile extends Fragment {
         String titelsInDB = "";
         for (int i = 0; i < data.size(); i++){
 
-            titelsInDB += data.get(i).getTitel();
+            titelsInDB += (data.get(i).getTitel() + " | " +data.get(i).getTime() + " | " +data.get(i).getWords() + " | " +data.get(i).getLix() + " | " +data.get(i).getRatio());
             titelsInDB += "\n";
 
         }

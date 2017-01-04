@@ -22,7 +22,7 @@ public class DBHandler extends SQLiteOpenHelper{
 
     public static final String titel = "_textTitle";
     public static final String ord = "antalOrd";
-    public static final String minutter = "minutter";
+    public static final String sekunder = "sekunder";
     public static final String lix = "lix";
     public static final String ratio = "ratio";
 
@@ -42,7 +42,7 @@ public class DBHandler extends SQLiteOpenHelper{
         db.execSQL("create table " + TABLE_WPM + " ("
                 + titel + " TEXT, "
                 + ord + " INTEGER, "
-                + minutter + " REAL, "
+                + sekunder + " REAL, "
                 +  lix + " INTEGER, "
                 + ratio + " REAL)");
     }
@@ -55,12 +55,15 @@ public class DBHandler extends SQLiteOpenHelper{
 
     public void addTestResult (String texttitel, int words, double minutes, int lixNumber, double[] stat){
 
+
             SQLiteDatabase db = getWritableDatabase();
+        //onUpgrade(db, db.getVersion(), db.getVersion()+1);
+
 
             ContentValues række = new ContentValues();
             række.put(titel, texttitel);
             række.put(ord, words);
-            række.put(minutter, minutes);
+            række.put(sekunder, minutes);
             række.put(lix, lixNumber);
             række.put(ratio, stat[0]);
 
@@ -74,7 +77,7 @@ public class DBHandler extends SQLiteOpenHelper{
     public ArrayList<Result> getContent(){
 
         ArrayList<Result> results = new ArrayList<>();
-        String[] kolonner = {titel, ord, minutter, lix, ratio};
+        String[] kolonner = {titel, ord, sekunder, lix, ratio};
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables(TABLE_WPM);
@@ -99,4 +102,5 @@ public class DBHandler extends SQLiteOpenHelper{
         db.close();
         return  results;
     }
+
 }

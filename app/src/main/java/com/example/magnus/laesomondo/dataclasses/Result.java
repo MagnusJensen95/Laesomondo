@@ -52,4 +52,8 @@ public class Result {
     public void setWords(int words) {
         this.words = words;
     }
+
+    public double getRatio() {
+        return ratio;
+    }
 }
