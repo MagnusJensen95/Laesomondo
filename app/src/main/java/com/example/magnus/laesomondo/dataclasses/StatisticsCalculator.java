@@ -5,4 +5,13 @@ package com.example.magnus.laesomondo.dataclasses;
  */
 
 public class StatisticsCalculator {
+
+    //globale gennemsnitlige læsehastighed (ord/minut).
+    private final int globalAverageTimeToRead = 200;
+
+    //brugerens gennemsnitlige læsehastighed (ord/minut).
+    private int userTimeToRead;
+
+    //user/global reading time ratio.
+    private double ratio;
 }
