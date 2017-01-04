@@ -13,5 +13,16 @@ public class StatisticsCalculator {
     private int userTimeToRead;
 
     //user/global reading time ratio.
-    private double ratio;
+    private static double ratio;
+
+    public static double[] calculateComparativeReadingTime(double userTimeToRead, int amountWords){
+
+        //ratio is used for summary pop up, as prompt to user.
+        ratio = (amountWords / userTimeToRead) / (200 / 60);
+        //globaltextreadtime is used for comparison in graph in user profile.
+        double globalCurrentTextReadTime = (200 / 60) * ratio;
+
+        double[] toReturn = {ratio, globalCurrentTextReadTime};
+        return toReturn;
+    }
 }

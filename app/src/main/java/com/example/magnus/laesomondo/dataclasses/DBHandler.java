@@ -47,7 +47,7 @@ public class DBHandler extends SQLiteOpenHelper{
         this.onCreate(db);
     }
 
-    public void addTestResult (String texttitel, int words, double minutes){
+    public void addTestResult (String texttitel, int words, double minutes, int LixNumber, double[] stat){
 
             SQLiteDatabase db = getWritableDatabase();
 

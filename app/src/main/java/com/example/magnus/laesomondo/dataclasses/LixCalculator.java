@@ -12,7 +12,7 @@ public class LixCalculator {
         //Finding amount of words in text.
         String temptemp = text.replaceAll("[\\W]"," ");
 
-        int amountWords = temptemp.split(" ").length;
+        int amountWords = temptemp.split(" ").length; //.split("\\s+") might be better here.
         /*for(int i = 0; i < text.length(); i++){
             if(temptemp.charAt(i)==' '){
                 amountWords++;

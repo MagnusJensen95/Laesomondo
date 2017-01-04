@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.dataclasses.DBHandler;
+import com.example.magnus.laesomondo.dataclasses.LixCalculator;
+import com.example.magnus.laesomondo.dataclasses.StatisticsCalculator;
 
 /**
  * Created by buller on 16/09/2016.
@@ -59,7 +61,7 @@ public class SummaryPopUp extends Fragment {
 
         DBHandler database = new DBHandler(getActivity());
 
-        database.addTestResult(textTitle, wordsInText, timeMillis);
+        database.addTestResult(textTitle, wordsInText, timeMillis, LixCalculator.calcLix("change this"), StatisticsCalculator.calculateComparativeReadingTime(1, 2)); //TODO: change the 2 methods to return actual values.
 
         return v;
     }
