@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class ReadingTestPrerequisites extends Fragment {
 
     SeekBar seekBarTime;
     TextView seekBarTimeValue;
+    private Button startTestButton;
 
     SeekBar seekBarDifficulty;
     TextView seekBarDifficultyValue;
@@ -25,6 +27,8 @@ public class ReadingTestPrerequisites extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          View view = inflater.inflate(R.layout.activity_reading_test_prerequisites, container, false);
+
+
 
         SeekBar seekBarTime = (SeekBar) view.findViewById(R.id.readingTestPrerequisitesTimeSlider);
         final TextView seekBarTimeValue = (TextView) view.findViewById(R.id.seekBarTimeValue);
@@ -104,6 +108,19 @@ public class ReadingTestPrerequisites extends Fragment {
         });
 
 
+        startTestButton = (Button) view.findViewById(R.id.readingTestPrerequisitesStartButton);
+        startTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String readingText = getString(R.string.readingTestReadingMaterial);
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), ReadingTest.class);
+                intent.putExtra("readingTestType", "readingTestOriginal");
+                intent.putExtra("TextToLoad", readingText);
+                intent.putExtra("TextTitle", "Default Titel");
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -113,13 +130,7 @@ public class ReadingTestPrerequisites extends Fragment {
 
         //TODO:Below needs severe overhaul. More texts in strings resource, random or determined way
         //TODO:of loading differentiating texts, title for textstring as well.
-        String readingText = getString(R.string.readingTestReadingMaterial);
 
-        Intent intent = new Intent(getActivity().getApplicationContext(), ReadingTest.class);
-        intent.putExtra("readingTestType", "readingTestOriginal");
-        intent.putExtra("TextToLoad", readingText);
-        intent.putExtra("TextTitle", "Default Titel");
-        startActivity(intent);
     }
     //implement functionality, as well as cm start button (stop button in reading test).
 }
