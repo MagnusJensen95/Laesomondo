@@ -1,13 +1,18 @@
 package com.example.magnus.laesomondo.fragments;
 
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -67,6 +72,10 @@ public class SummaryPopUp extends DialogFragment {
         database.addTestResult(textTitle, wordsInText, timeMillis, LixCalculator.calcLix(textText),
                 StatisticsCalculator.calculateComparativeReadingTime(timeMillis, wordsInText)); //TODO: change the 2 methods to return actual values.
 
+
+      //  getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+     //   getDialog().getWindow().setBackgroundDrawable(null);
+
         return v;
     }
 
@@ -89,5 +98,29 @@ public class SummaryPopUp extends DialogFragment {
     public void onProfile(View v){
 
         getFragmentManager().beginTransaction().replace(R.id.container_main, new UserProfile());
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+
+            dm = new DisplayMetrics();
+            getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+
+            dialog.getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.8));
+            dialog.getWindow().setBackgroundDrawableResource(R.color.colorPrimary);
+        }
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Dialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+        return dialog;
     }
 }
