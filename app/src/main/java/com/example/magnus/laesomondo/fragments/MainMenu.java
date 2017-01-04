@@ -57,6 +57,7 @@ public class MainMenu extends Fragment {
                                 R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
                                 new TextFromNetAct()).addToBackStack(null).commit();
 
+
                         break;
                     case R.id.mainMenuUserLoggedInReadingTestButton:
 

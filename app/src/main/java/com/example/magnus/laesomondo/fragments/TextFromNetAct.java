@@ -15,8 +15,6 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import com.example.magnus.laesomondo.R;
-import com.example.magnus.laesomondo.activities.ReadingTest;
-import com.example.magnus.laesomondo.dataclasses.LixCalculator;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -95,12 +93,22 @@ public class TextFromNetAct extends Fragment {
 
             // textLoader.setUrl(this.web.getUrl());
 
-            Intent goToReading = new Intent(getActivity().getApplicationContext(), ReadingTest.class);
 
-            goToReading.putExtra("TextToLoad", HTMLTExt);
-            goToReading.putExtra("Titel", HTMLTitel);
-            goToReading.putExtra("readingTestType", "readingTestNetTest");
-            startActivity(goToReading);
+
+
+
+            Bundle b = new Bundle();
+            ReadingTest frag = new ReadingTest();
+
+            b.putString("readingTestType", "readingTestNetTest");
+            b.putString("TextToLoad", HTMLTExt);
+            b.putString("Title", HTMLTitel);
+            frag.setArguments(b);
+
+            getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
+                    frag).addToBackStack(null).commit();
+
         }
     }
 

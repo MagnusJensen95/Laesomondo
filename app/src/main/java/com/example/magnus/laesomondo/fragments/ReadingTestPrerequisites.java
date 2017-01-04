@@ -12,7 +12,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
-import com.example.magnus.laesomondo.activities.ReadingTest;
 
 public class ReadingTestPrerequisites extends Fragment {
 
@@ -114,11 +113,17 @@ public class ReadingTestPrerequisites extends Fragment {
             public void onClick(View v) {
                 String readingText = getString(R.string.readingTestReadingMaterial);
 
-                Intent intent = new Intent(getActivity().getApplicationContext(), ReadingTest.class);
-                intent.putExtra("readingTestType", "readingTestOriginal");
-                intent.putExtra("TextToLoad", readingText);
-                intent.putExtra("TextTitle", "Default Titel");
-                startActivity(intent);
+                Bundle b = new Bundle();
+                ReadingTest frag = new ReadingTest();
+
+                b.putString("readingTestType", "readingTestOriginal");
+                b.putString("TextToLoad", readingText);
+                b.putString("TextTitle", "Default Titel");
+                frag.setArguments(b);
+
+                getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
+                       frag).addToBackStack(null).commit();
             }
         });
 
@@ -126,11 +131,5 @@ public class ReadingTestPrerequisites extends Fragment {
     }
 
 
-    public void startReadingTest(View v) {
 
-        //TODO:Below needs severe overhaul. More texts in strings resource, random or determined way
-        //TODO:of loading differentiating texts, title for textstring as well.
-
-    }
-    //implement functionality, as well as cm start button (stop button in reading test).
 }

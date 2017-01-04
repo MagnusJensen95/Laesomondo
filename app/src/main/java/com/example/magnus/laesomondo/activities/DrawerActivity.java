@@ -18,6 +18,7 @@ import com.crashlytics.android.Crashlytics;
 import com.example.magnus.laesomondo.fragments.MainMenu;
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.fragments.ReadingTestPrerequisites;
+import com.example.magnus.laesomondo.fragments.SummaryPopUp;
 import com.example.magnus.laesomondo.fragments.TextFromNetAct;
 import com.example.magnus.laesomondo.fragments.UserProfile;
 
@@ -27,6 +28,7 @@ public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentManager manager;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class DrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        manager = getFragmentManager();
 
 
         boolean emulator = Build.PRODUCT.contains("sdk") || Build.MODEL.contains("Emulator");
@@ -56,7 +60,7 @@ public class DrawerActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        manager = getFragmentManager();
+
 
        manager.beginTransaction().replace(R.id.container_main, new MainMenu()).commit();
 

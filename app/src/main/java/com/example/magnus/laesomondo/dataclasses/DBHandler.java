@@ -23,6 +23,9 @@ public class DBHandler extends SQLiteOpenHelper{
     public static final String titel = "_textTitle";
     public static final String ord = "antalOrd";
     public static final String minutter = "minutter";
+    public static final String lix = "lix";
+    public static final String ratio = "ratio";
+
 
 
 
@@ -38,7 +41,10 @@ public class DBHandler extends SQLiteOpenHelper{
 
         db.execSQL("create table " + TABLE_WPM + " ("
                 + titel + " TEXT, "
-                + ord + " INTEGER, " + minutter + " REAL)");
+                + ord + " INTEGER, "
+                + minutter + " REAL, "
+                +  lix + " INTEGER, "
+                + ratio + " REAL)");
     }
 
     @Override
@@ -47,7 +53,7 @@ public class DBHandler extends SQLiteOpenHelper{
         this.onCreate(db);
     }
 
-    public void addTestResult (String texttitel, int words, double minutes, int LixNumber, double[] stat){
+    public void addTestResult (String texttitel, int words, double minutes, int lixNumber, double[] stat){
 
             SQLiteDatabase db = getWritableDatabase();
 
@@ -55,6 +61,9 @@ public class DBHandler extends SQLiteOpenHelper{
             række.put(titel, texttitel);
             række.put(ord, words);
             række.put(minutter, minutes);
+            række.put(lix, lixNumber);
+            række.put(ratio, stat[0]);
+
             db.insert(TABLE_WPM, null, række);
 
 
@@ -65,7 +74,7 @@ public class DBHandler extends SQLiteOpenHelper{
     public ArrayList<Result> getContent(){
 
         ArrayList<Result> results = new ArrayList<>();
-        String[] kolonner = {titel, ord, minutter};
+        String[] kolonner = {titel, ord, minutter, lix, ratio};
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables(TABLE_WPM);
@@ -76,7 +85,12 @@ public class DBHandler extends SQLiteOpenHelper{
             while (!cursor.isAfterLast()) {
                 Log.i("DEBUG", "Inside bruh");
                 //Log.i("DEBUG", cursor.getString(0));
-                results.add(new Result(cursor.getString(0), cursor.getInt(1), cursor.getDouble(2)));
+                results.add(new Result(
+                        cursor.getString(0),
+                        cursor.getInt(1),
+                        cursor.getDouble(2),
+                        cursor.getInt(3),
+                        cursor.getDouble(4)));
                 cursor.moveToNext();
             }
         }

@@ -1,5 +1,6 @@
 package com.example.magnus.laesomondo.fragments;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,7 +19,7 @@ import com.example.magnus.laesomondo.dataclasses.StatisticsCalculator;
 /**
  * Created by buller on 16/09/2016.
  */
-public class SummaryPopUp extends Fragment {
+public class SummaryPopUp extends DialogFragment {
 
     Button tryAgain;
     Button profile;
@@ -28,6 +29,7 @@ public class SummaryPopUp extends Fragment {
     Double timeMillis;
     int wordsInText;
     String textTitle;
+    String textText;
 
     //TODO: Implement userLoggedIn variable for determining if profile
     //TODO: button should be shown. See onDestroy for more.
@@ -41,18 +43,19 @@ public class SummaryPopUp extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          View v = inflater.inflate(R.layout.summarypopup, container, false);
 
-        dm = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+       // dm = new DisplayMetrics();
+        //getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         tryAgain = (Button)v.findViewById(R.id.TryAgainButtonText);
         profile = (Button)v.findViewById(R.id.summaryPopUpTBD);
         scoreView = (TextView) v.findViewById(R.id.summaryPopUpScoreTBD);
 
-        getActivity().getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
+       // getActivity().getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
 
         Bundle extras = getArguments();
         timeMillis = extras.getDouble("ReadingTime");
         wordsInText = extras.getInt("WordsIntText");
         textTitle = extras.getString("TextTitle");
+        textText = extras.getString("TextToLoad");
 
         int timeMinutes = (int) Math.floor((timeMillis/1000)/60);
         int timeSeconds = (int) Math.floor(timeMillis/1000)%60;
@@ -61,7 +64,8 @@ public class SummaryPopUp extends Fragment {
 
         DBHandler database = new DBHandler(getActivity());
 
-        database.addTestResult(textTitle, wordsInText, timeMillis, LixCalculator.calcLix("change this"), StatisticsCalculator.calculateComparativeReadingTime(1, 2)); //TODO: change the 2 methods to return actual values.
+        database.addTestResult(textTitle, wordsInText, timeMillis, LixCalculator.calcLix(textText),
+                StatisticsCalculator.calculateComparativeReadingTime(timeMillis, wordsInText)); //TODO: change the 2 methods to return actual values.
 
         return v;
     }
