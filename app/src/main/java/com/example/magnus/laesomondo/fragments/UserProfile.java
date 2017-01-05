@@ -1,6 +1,7 @@
 package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
+import android.opengl.GLDebugHelper;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,13 +12,21 @@ import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.dataclasses.DBHandler;
+import com.example.magnus.laesomondo.dataclasses.GraphController;
 import com.example.magnus.laesomondo.dataclasses.Result;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 
 public class UserProfile extends Fragment {
 
     TextView resultater;
+    GraphView graph;
+    GraphController gc;
+    DBHandler db;
 
     @Nullable
     @Override
@@ -26,22 +35,38 @@ public class UserProfile extends Fragment {
         View v = inflater.inflate(R.layout.activity_user_profile, container, false);
 
 
-        DBHandler db = new DBHandler(getActivity());
+        db = new DBHandler(getActivity());
 
-        resultater = (TextView) v.findViewById(R.id.grafTekst);
-
+        graph = (GraphView) v.findViewById(R.id.progressGraph);
         ArrayList<Result> data = db.getContent();
+        gc = new GraphController(graph);
+        if(data.size() > 0) {
+            DataPoint[] points = new DataPoint[data.size()];
+            for (int i = 0; i < data.size(); i++) {
+                points[i] = (new DataPoint(i, data.get(i).getRatio()));
+
+
+            }
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
+
+
+            graph.getGridLabelRenderer().setHorizontalAxisTitle("Tekst");
+            graph.getGridLabelRenderer().setVerticalAxisTitle("WPM");
+            graph.addSeries(series);
+        }
+
+
+
+
+
+
+
         Log.i("DEBUG ARRAY LENGTH: ", ""+data.size());
 
         String titelsInDB = "";
-        for (int i = 0; i < data.size(); i++){
 
-            titelsInDB += (data.get(i).getTitel() + " | " +data.get(i).getTime() + " | " +data.get(i).getWords() + " | " +data.get(i).getLix() + " | " +data.get(i).getRatio());
-            titelsInDB += "\n";
 
-        }
-
-        resultater.setText(titelsInDB);
+        //resultater.setText(titelsInDB);
 
 
         return v;
