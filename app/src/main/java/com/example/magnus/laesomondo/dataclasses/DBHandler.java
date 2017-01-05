@@ -84,9 +84,9 @@ public class DBHandler extends SQLiteOpenHelper{
 
 
         Cursor cursor = builder.query(db, null, null, null, null, null, null);
-        if(cursor.moveToFirst()) {
+        if(cursor.moveToNext()) {
             while (!cursor.isAfterLast()) {
-                Log.i("DEBUG", "Inside bruh");
+
                 //Log.i("DEBUG", cursor.getString(0));
                 results.add(new Result(
                         cursor.getString(0),
