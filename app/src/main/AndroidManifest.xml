@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.magnus.laesomondo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,25 +11,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+
+
+        <activity android:name=".fragments.MainMenuUser" />
+        <activity android:name=".fragments.ReadingTestPrerequisites" />
+        <activity android:name=".fragments.ReadingTest" />
+        <activity
+            android:name=".fragments.SummaryPopUp"
+            android:theme="@style/AppTheme.CustomPopUpTheme" />
+        <activity android:name=".fragments.UserProfile" />
+        <activity android:name=".fragments.TextFromNetAct" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="68098b5efae56fefd5f95043e4c6e4dbf4a0482a" />
+
+        <activity
+            android:name=".activities.DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogIn" />
-        <activity android:name=".MainMenuUser" />
-        <activity android:name=".ReadingTestPrerequisites" />
-        <activity android:name=".ReadingTest" />
-        <activity
-            android:name=".SummaryPopUp"
-            android:theme="@style/AppTheme.CustomPopUpTheme" />
-        <activity android:name=".UserProfile" />
-        <activity android:name=".TextFromNetAct"></activity>
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="68098b5efae56fefd5f95043e4c6e4dbf4a0482a" />
     </application>
 
 </manifest>

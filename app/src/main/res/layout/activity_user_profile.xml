@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context="com.example.magnus.laesomondo.UserProfile">
+    tools:context="com.example.magnus.laesomondo.fragments.UserProfile">
 
     <TextView
         style="@style/defaultText"

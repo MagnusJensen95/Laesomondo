@@ -1,33 +1,36 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.fragments;
 
+import android.app.Fragment;
 import android.content.Intent;
-import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.magnus.laesomondo.R;
 
-public class ReadingTestPrerequisites extends AppCompatActivity {
+public class ReadingTestPrerequisites extends Fragment {
 
     SeekBar seekBarTime;
     TextView seekBarTimeValue;
+    private Button startTestButton;
 
     SeekBar seekBarDifficulty;
     TextView seekBarDifficultyValue;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reading_test_prerequisites);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.activity_reading_test_prerequisites, container, false);
 
-        SeekBar seekBarTime = (SeekBar) findViewById(R.id.readingTestPrerequisitesTimeSlider);
-        final TextView seekBarTimeValue = (TextView) findViewById(R.id.seekBarTimeValue);
+
+
+        SeekBar seekBarTime = (SeekBar) view.findViewById(R.id.readingTestPrerequisitesTimeSlider);
+        final TextView seekBarTimeValue = (TextView) view.findViewById(R.id.seekBarTimeValue);
         seekBarTimeValue.setText(String.valueOf(seekBarTime.getProgress()));
 
         seekBarTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -50,8 +53,8 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
             }
         });
 
-        SeekBar seekBarDifficulty = (SeekBar) findViewById(R.id.readingTestPrerequisitesDifficultySlider);
-        final TextView seekBarDifficultyValue = (TextView) findViewById(R.id.seekBarDifficultyValue);
+        SeekBar seekBarDifficulty = (SeekBar) view.findViewById(R.id.readingTestPrerequisitesDifficultySlider);
+        final TextView seekBarDifficultyValue = (TextView) view.findViewById(R.id.seekBarDifficultyValue);
         switch(seekBarDifficulty.getProgress()){
             case 0:
                 seekBarDifficultyValue.setText("Let øvet");
@@ -102,19 +105,31 @@ public class ReadingTestPrerequisites extends AppCompatActivity {
                 // TODO Auto-generated method stub
             }
         });
+
+
+        startTestButton = (Button) view.findViewById(R.id.readingTestPrerequisitesStartButton);
+        startTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String readingText = getString(R.string.readingTestReadingMaterial);
+
+                Bundle b = new Bundle();
+                ReadingTest frag = new ReadingTest();
+
+                b.putString("readingTestType", "readingTestOriginal");
+                b.putString("TextToLoad", readingText);
+                b.putString("TextTitle", "Default Titel");
+                frag.setArguments(b);
+
+                getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
+                       frag).addToBackStack(null).commit();
+            }
+        });
+
+        return view;
     }
 
-    public void startReadingTest(View v) {
 
-        //TODO:Below needs severe overhaul. More texts in strings resource, random or determined way
-        //TODO:of loading differentiating texts, title for textstring as well.
-        String readingText = getString(R.string.readingTestReadingMaterial);
 
-        Intent intent = new Intent(getBaseContext(), ReadingTest.class);
-        intent.putExtra("readingTestType", "readingTestOriginal");
-        intent.putExtra("TextToLoad", readingText);
-        intent.putExtra("TextTitle", "Default Titel");
-        startActivity(intent);
-    }
-    //implement functionality, as well as cm start button (stop button in reading test).
 }

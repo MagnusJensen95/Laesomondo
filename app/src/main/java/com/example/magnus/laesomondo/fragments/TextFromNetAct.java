@@ -1,16 +1,20 @@
-package com.example.magnus.laesomondo;
+package com.example.magnus.laesomondo.fragments;
 
-import android.content.ComponentName;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+
+import com.example.magnus.laesomondo.R;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,18 +23,18 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class TextFromNetAct extends AppCompatActivity {
+public class TextFromNetAct extends Fragment {
 
     WebView web;
     Button load;
 
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_text_from_net);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        web = (WebView) findViewById(R.id.webviewContent);
+        View v = inflater.inflate(R.layout.activity_text_from_net, container, false);
+
+        web = (WebView) v.findViewById(R.id.webviewContent);
 
         web.setWebViewClient(new WebViewClient() {
             @Override
@@ -41,15 +45,18 @@ public class TextFromNetAct extends AppCompatActivity {
 
         web.loadUrl("http://www.google.com");
 
-        load = (Button)findViewById(R.id.loadPageButton);
+        load = (Button)v.findViewById(R.id.loadPageButton);
 
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new fetchHTMLText().execute();
+            }
+        });
+
+        return v;
     }
 
-    public void onLoadContent(View v){
-
-        new fetchHTMLText().execute();
-
-    }
 
     private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
 
@@ -86,12 +93,22 @@ public class TextFromNetAct extends AppCompatActivity {
 
             // textLoader.setUrl(this.web.getUrl());
 
-            Intent goToReading = new Intent(getApplicationContext(), ReadingTest.class);
 
-            goToReading.putExtra("TextToLoad", HTMLTExt);
-            goToReading.putExtra("Titel", HTMLTitel);
-            goToReading.putExtra("readingTestType", "readingTestNetTest");
-            startActivity(goToReading);
+
+
+
+            Bundle b = new Bundle();
+            ReadingTest frag = new ReadingTest();
+
+            b.putString("readingTestType", "readingTestNetTest");
+            b.putString("TextToLoad", HTMLTExt);
+            b.putString("Title", HTMLTitel);
+            frag.setArguments(b);
+
+            getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
+                    frag).addToBackStack(null).commit();
+
         }
     }
 

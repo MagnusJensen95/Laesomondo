@@ -35,6 +35,12 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="summaryPopUpTBD">Min Side</string>
     <string name="udvikling">Udvikling</string>
     <string name="main_menu_tekst_fra_nettet">Tekst Fra Nettet</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 
 </resources>

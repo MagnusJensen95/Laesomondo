@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.magnus.laesomondo.ReadingTestPrerequisites">
+    tools:context="com.example.magnus.laesomondo.fragments.ReadingTestPrerequisites">
 
     <TextView
         style="@style/defaultText"
@@ -19,7 +19,7 @@
         android:id="@+id/readingTestPrerequisitesReadingTime"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="111dp"/>
+        android:layout_marginTop="50dp"/>
 
     <SeekBar
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
         android:layout_below="@+id/readingTestPrerequisitesDifficultySlider"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:onClick="startReadingTest">
+       >
     </Button>
 
 </RelativeLayout>
