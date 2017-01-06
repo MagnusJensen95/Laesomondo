@@ -36,6 +36,7 @@ public class TextFromNetAct extends Fragment {
 
         web = (WebView) v.findViewById(R.id.webviewContent);
 
+
         web.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {

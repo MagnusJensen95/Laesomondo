@@ -13,14 +13,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".fragments.MainMenuUser" />
-        <activity android:name=".fragments.ReadingTestPrerequisites" />
-        <activity android:name=".fragments.ReadingTest" />
-        <activity
-            android:name=".fragments.SummaryPopUp"
-            android:theme="@style/AppTheme.CustomPopUpTheme" />
-        <activity android:name=".fragments.UserProfile" />
-        <activity android:name=".fragments.TextFromNetAct" />
+
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -28,8 +21,9 @@
 
         <activity
             android:name=".activities.DrawerActivity"
-            android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme">
+            android:label="Læsomondo"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
