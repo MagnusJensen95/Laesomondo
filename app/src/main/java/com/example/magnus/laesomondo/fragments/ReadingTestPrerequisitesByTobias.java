@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
-import com.example.magnus.laesomondo.dataclasses.ResizeAnimation;
 import com.szugyi.circlemenu.view.CircleImageView;
 import com.szugyi.circlemenu.view.CircleLayout;
 
@@ -52,6 +52,7 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
 
         las = (Button) fgView.findViewById(R.id.btnStart);
         las.setVisibility(GONE);
+
 
         seekBar = (SeekBar) fgView.findViewById(R.id.seekBar1);
         seekBar.setVisibility(GONE);
@@ -133,11 +134,23 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
         selectedTextView = (TextView) fgView.findViewById(R.id.selected_textView);
 
         String name = null;
-        View view = circleLayout.getSelectedItem();
+        final View view = circleLayout.getSelectedItem();
         if (view instanceof CircleImageView) {
             name = ((CircleImageView) view).getName();
         }
         selectedTextView.setText(name);
+        las.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               int time = seekBar.getProgress();
+               int difficulty = seekBar2.getProgress();
+                String theme =  ((CircleImageView) circleLayout.getSelectedItem()).getName();
+
+
+
+
+            }
+        });
         return fgView;
     }
         @Override
@@ -377,7 +390,7 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
             SeekBar SeekBarAraay = s[i];
             s[i].setDrawingCacheEnabled(true);
             Animation animation = new RotateAnimation(200, 360, s[i].getWidth(), s[i].getHeight());
-            animation.setDuration(1250);
+            animation.setDuration(750);
             s[i].startAnimation(animation);
         }
     }
@@ -388,7 +401,7 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
         for(int i = 0 ; i < t.length;i++) {
             TextView textViewAraay = t[i];
             Animation animation = new RotateAnimation(200, 360, t[i].getWidth(), t[i].getHeight());
-            animation.setDuration(1250);
+            animation.setDuration(750);
             t[i].startAnimation(animation);
 
         }
@@ -428,7 +441,7 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
         las.setText("LÆS!");
         // animation for knappen
         Animation animation = new RotateAnimation(200, 360, las.getWidth(), las.getHeight());
-        animation.setDuration(1250);
+        animation.setDuration(750);
         las.startAnimation(animation);
     }
 
