@@ -16,7 +16,7 @@
     </style>
 
     <style name="defaultText" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textSize">25dp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:typeface">serif</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textStyle">bold</item>
