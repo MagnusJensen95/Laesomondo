@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * Created by Magnus on 06-01-2017.
@@ -18,10 +19,8 @@ public class TextHandler {
     private int time;
     private int difficulty;
 
-    public TextHandler(int difficulty, String text, int time) {
-        this.difficulty = difficulty;
-        this.text = text;
-        this.time = time;
+    public TextHandler() {
+
     }
 
     public int getDifficulty() {
@@ -53,13 +52,49 @@ public class TextHandler {
         String total = "";
         try{
             InputStream f = context.getResources().getAssets().open(titel);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(f));
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(f, "windows-1252"));
+
             String temp;
             while ((temp = reader.readLine()) != null) {
                 toRead.append(temp).append('\n');
             }
 
             total = toRead.toString();
+            int wordsToBring = time*difficulty;
+
+            String[] splitted = total.split(" ");
+            int amountWords = splitted.length; //.split("\\s+") might be better here.
+
+            if(wordsToBring < amountWords) {
+                //splitted = Arrays.copyOfRange(splitted, 0, wordsToBring);
+                total = "";
+                for(int i = 0; i <= wordsToBring; i++){
+
+                    total += splitted[i];
+                    total += " ";
+
+                    while( i >= wordsToBring && i <= amountWords){
+                        if(i  >= wordsToBring){
+                            i++;
+                            total += splitted[i];
+                            if(splitted[i].contains(".")){
+                                return total;
+                            }
+                            total += " ";
+                        }
+                    }
+
+                }
+                return total;
+            }
+            else if (wordsToBring > amountWords){
+
+                return total;
+
+
+
+            }
 
 
         }

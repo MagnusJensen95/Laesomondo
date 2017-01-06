@@ -19,6 +19,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.dataclasses.TextHandler;
 import com.szugyi.circlemenu.view.CircleImageView;
 import com.szugyi.circlemenu.view.CircleLayout;
 
@@ -43,6 +44,7 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
     private TextView textView, textView2, tidLaese, svaerhedsgrad;
     private Button las;
     private View fgView;
+    private int diff = 200;
 
 
     @Nullable
@@ -96,15 +98,19 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                 switch (progresValue) {
                     case 0:
                         textView2.setText("Let øvet");
+                        diff = 150;
                         break;
                     case 1:
                         textView2.setText("Øvet");
+                        diff = 200;
                         break;
                     case 2:
                         textView2.setText("Meget øvet");
+                        diff = 250;
                         break;
                     case 3:
                         textView2.setText("Ekspert");
+                        diff = 300;
                         break;
                     default:
                         break;
@@ -145,6 +151,22 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                int time = seekBar.getProgress();
                int difficulty = seekBar2.getProgress();
                 String theme =  ((CircleImageView) circleLayout.getSelectedItem()).getName();
+
+                TextHandler handler = new TextHandler();
+
+                String parseString = handler.retrieveText(getActivity(), time, diff, theme.toLowerCase()+".txt");
+
+                Bundle b = new Bundle();
+                ReadingTest frag = new ReadingTest();
+
+                b.putString("readingTestType", "readingTestOriginal");
+                b.putString("TextToLoad", parseString);
+                b.putString("TextTitle", "Default Titel");
+                frag.setArguments(b);
+
+                getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
+                        frag).addToBackStack(null).commit();
 
 
 
