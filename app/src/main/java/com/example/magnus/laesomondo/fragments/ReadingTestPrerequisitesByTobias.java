@@ -180,6 +180,7 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
 
             switch (view.getId()) {
                 case R.id.historie:
+                    initializeOnClick(view);
                     if (circleLayout.getChildCount() > 1) {
 
                         for (int i = 0; i < 5; i++) {
@@ -188,25 +189,13 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                     }
 
                     ImageView img_his = (ImageView) fgView.findViewById(R.id.historie);
-                    circleLayout.setEnabled(false);
-                    circleLayout.setRotating(false);
-
                     moveViewToScreenCenter(img_his);
-                   // moveViewToScreenCenter(selectedTextView);
-
-
-                    rotateSeekBar(seekBar, seekBar2);
-
-                    initializeOnClick(view);
-
-                    setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
 
                     break;
                 case R.id.krimi:
-                    ImageView img_krimi = (ImageView) fgView.findViewById(R.id.krimi);
 
-                    circleLayout.setEnabled(false);
-                    circleLayout.setRotating(false);
+                    ImageView img_krimi = (ImageView) fgView.findViewById(R.id.krimi);
+                    initializeOnClick(view);
 
                     circleLayout.removeViewAt(5);
                     circleLayout.removeViewAt(4);
@@ -214,50 +203,26 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                     circleLayout.removeViewAt(2);
                     circleLayout.removeViewAt(0);
 
-                    circleLayout.setFirstChildPosition(CircleLayout.FirstChildPosition.SOUTH);
-
                     moveViewToScreenCenter(img_krimi);
-
-                    //moveViewToScreenCenter(selectedTextView);
-
-                    rotateSeekBar(seekBar, seekBar2);
-
-                    initializeOnClick(view);
-
-                    setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
-
 
                     break;
                 case R.id.mad:
 
                     ImageView img_mad = (ImageView) fgView.findViewById(R.id.mad);
-
-                    circleLayout.setEnabled(false);
-                    circleLayout.setRotating(false);
+                    initializeOnClick(view);
 
                     circleLayout.removeViewAt(5);
                     circleLayout.removeViewAt(4);
                     circleLayout.removeViewAt(3);
                     circleLayout.removeViewAt(1);
                     circleLayout.removeViewAt(0);
-
-                    circleLayout.setFirstChildPosition(CircleLayout.FirstChildPosition.SOUTH);
 
                     moveViewToScreenCenter(img_mad);
 
-                   // moveViewToScreenCenter(selectedTextView);
-
-                    rotateSeekBar(seekBar, seekBar2);
-
-                    initializeOnClick(view);
-
-                    setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
                     break;
                 case R.id.natur:
                     ImageView img_natur = (ImageView) fgView.findViewById(R.id.natur);
-
-                    circleLayout.setEnabled(false);
-                    circleLayout.setRotating(false);
+                    initializeOnClick(view);
 
                     circleLayout.removeViewAt(5);
                     circleLayout.removeViewAt(4);
@@ -265,23 +230,12 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                     circleLayout.removeViewAt(1);
                     circleLayout.removeViewAt(0);
 
-                    circleLayout.setFirstChildPosition(CircleLayout.FirstChildPosition.SOUTH);
-
                     moveViewToScreenCenter(img_natur);
 
-                   // moveViewToScreenCenter(selectedTextView);
-
-                    rotateSeekBar(seekBar, seekBar2);
-
-                    initializeOnClick(view);
-
-                    setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
                     break;
                 case R.id.sport:
                     ImageView img_sport = (ImageView) fgView.findViewById(R.id.sport);
-
-                    circleLayout.setEnabled(false);
-                    circleLayout.setRotating(false);
+                    initializeOnClick(view);
 
                     circleLayout.removeViewAt(5);
                     circleLayout.removeViewAt(3);
@@ -289,24 +243,13 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                     circleLayout.removeViewAt(1);
                     circleLayout.removeViewAt(0);
 
-                    circleLayout.setFirstChildPosition(CircleLayout.FirstChildPosition.SOUTH);
-
                     moveViewToScreenCenter(img_sport);
 
-                    //moveViewToScreenCenter(selectedTextView);
-
-                    rotateSeekBar(seekBar, seekBar2);
-
-                    initializeOnClick(view);
-
-                    setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
                     break;
 
                 case R.id.random:
                     ImageView img_random = (ImageView) fgView.findViewById(R.id.random);
-
-                    circleLayout.setEnabled(false);
-                    circleLayout.setRotating(false);
+                    initializeOnClick(view);
 
                     circleLayout.removeViewAt(4);
                     circleLayout.removeViewAt(3);
@@ -314,17 +257,8 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
                     circleLayout.removeViewAt(1);
                     circleLayout.removeViewAt(0);
 
-                    circleLayout.setFirstChildPosition(CircleLayout.FirstChildPosition.SOUTH);
-
                     moveViewToScreenCenter(img_random);
 
-                   // moveViewToScreenCenter(selectedTextView);
-
-                    rotateSeekBar(seekBar, seekBar2);
-
-                    initializeOnClick(view);
-
-                    setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
                     break;
             }
 
@@ -431,11 +365,14 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
 
     private  void initializeOnClick (View v){
 
+        circleLayout.setEnabled(false);
+        circleLayout.setRotating(false);
+        rotateSeekBar(seekBar, seekBar2);
+
         tidLaese.setText("Hvor lang tid vil du læse? (I minutter)");
 
         svaerhedsgrad.setText("Hvad er dit niveau ?");
 
-        //selectedTextView.setText("Du har valgt : "+((CircleImageView) v).getName());
         selectedTextView.setText("");
 
         textView.setText(String.valueOf(seekBar.getProgress())+" Minutter");
@@ -465,6 +402,8 @@ public class ReadingTestPrerequisitesByTobias extends Fragment implements Circle
         Animation animation = new RotateAnimation(200, 360, las.getWidth(), las.getHeight());
         animation.setDuration(750);
         las.startAnimation(animation);
+
+        setTextViewRotate(tidLaese, svaerhedsgrad, textView, textView2);
     }
 
 }
