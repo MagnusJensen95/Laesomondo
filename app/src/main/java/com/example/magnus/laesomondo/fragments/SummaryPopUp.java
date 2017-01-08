@@ -54,7 +54,7 @@ public class SummaryPopUp extends DialogFragment {
                         .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                                 R.animator.exit_to_right, R.animator.enter_from_right )
                         .replace(R.id.container_main,
-                                new ReadingTestPrerequisitesOld()).addToBackStack(null).commit();
+                                new MainMenu()).addToBackStack(null).commit();
                 dismiss();
             }
         });
