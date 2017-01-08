@@ -1,10 +1,7 @@
 package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;

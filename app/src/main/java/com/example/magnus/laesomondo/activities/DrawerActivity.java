@@ -1,6 +1,5 @@
 package com.example.magnus.laesomondo.activities;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +17,7 @@ import com.crashlytics.android.Crashlytics;
 import com.example.magnus.laesomondo.fragments.MainMenu;
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.fragments.ReadingTestPrerequisites;
-import com.example.magnus.laesomondo.fragments.SummaryPopUp;
+import com.example.magnus.laesomondo.fragments.ReadingTestPrerequisitesOld;
 import com.example.magnus.laesomondo.fragments.TextFromNetAct;
 import com.example.magnus.laesomondo.fragments.UserProfile;
 

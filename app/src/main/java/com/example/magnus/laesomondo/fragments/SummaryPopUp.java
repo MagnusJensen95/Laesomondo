@@ -2,13 +2,9 @@ package com.example.magnus.laesomondo.fragments;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +54,7 @@ public class SummaryPopUp extends DialogFragment {
                         .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                                 R.animator.exit_to_right, R.animator.enter_from_right )
                         .replace(R.id.container_main,
-                                new ReadingTestPrerequisites()).addToBackStack(null).commit();
+                                new ReadingTestPrerequisitesOld()).addToBackStack(null).commit();
                 dismiss();
             }
         });
