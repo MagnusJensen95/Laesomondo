@@ -69,6 +69,9 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                if (progresValue == 0){
+                    seekBar.setProgress(1);
+                }
                 seekBarTimeValue.setText(String.valueOf(seekBar.getProgress()) + " Minutter");
             }
 
