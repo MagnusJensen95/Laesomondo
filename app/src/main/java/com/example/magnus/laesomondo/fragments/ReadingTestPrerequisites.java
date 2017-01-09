@@ -145,6 +145,31 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                 int time = seekBarTime.getProgress();
                 int difficulty = seekBarDifficulty.getProgress();
                 String theme = ((CircleImageView) circleLayout.getSelectedItem()).getName();
+                if (theme.equals("Tilfældig")) {
+
+                    int randomTitle = (int)(Math.random() * 5);
+                            switch (randomTitle){
+
+                                case 0:
+                                    theme = "Historie";
+                                    break;
+                                case 1:
+                                    theme = "Krimi";
+                                    break;
+                                case 2:
+                                    theme = "Mad";
+                                    break;
+                                case 3:
+                                    theme = "Natur";
+                                    break;
+                                case 4:
+                                    theme = "Sport";
+                                    break;
+                                default:
+
+                            }
+
+                }
 
                 TextHandler handler = new TextHandler();
 

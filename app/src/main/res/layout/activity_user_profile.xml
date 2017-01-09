@@ -19,7 +19,7 @@
         android:id="@+id/myPageBrugernavn"/>
 
     <com.jjoe64.graphview.GraphView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:id="@+id/progressGraph"
         android:layout_alignParentBottom="true"

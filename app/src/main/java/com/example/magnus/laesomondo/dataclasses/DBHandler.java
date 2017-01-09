@@ -57,7 +57,7 @@ public class DBHandler extends SQLiteOpenHelper{
 
 
             SQLiteDatabase db = getWritableDatabase();
-        //onUpgrade(db, db.getVersion(), db.getVersion()+1);
+        ;
 
 
             ContentValues række = new ContentValues();
@@ -68,7 +68,7 @@ public class DBHandler extends SQLiteOpenHelper{
             række.put(ratio, stat[0]);
 
             db.insert(TABLE_WPM, null, række);
-
+            //onUpgrade(db, db.getVersion(), db.getVersion()+1);
 
             db.close();
 
