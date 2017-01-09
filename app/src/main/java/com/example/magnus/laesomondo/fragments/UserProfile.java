@@ -75,20 +75,15 @@ public class UserProfile extends Fragment {
             LineGraphSeries<DataPoint> avgSeries = new LineGraphSeries<>(avgPoints);
             avgSeries.setColor(Color.GREEN);
 
-
-           // graph.getGridLabelRenderer().setHorizontalAxisTitle("Tekst");
+            graph.getGridLabelRenderer().setHorizontalAxisTitle("Tekst");
             graph.getGridLabelRenderer().setNumHorizontalLabels(10);
-            //graph.getGridLabelRenderer().setVerticalAxisTitle("WPM");
+            //graph.getGridLabelRenderer().setVerticalAxisTitle("ratio");
             //series.setSpacing(50);
             //avgSeries.setSpacing(50);
             graph.addSeries(series);
             graph.addSeries(avgSeries);
 
         }
-
-
-
-
 
 
 

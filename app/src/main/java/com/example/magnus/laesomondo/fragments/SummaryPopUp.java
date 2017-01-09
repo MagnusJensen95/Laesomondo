@@ -90,11 +90,9 @@ public class SummaryPopUp extends DialogFragment {
         DBHandler database = new DBHandler(getActivity());
         double[] d = StatisticsCalculator.calculateComparativeReadingTime(timeMillis/1000, wordsInText);
 
-        for( int i = 0; i < 100; i++){
-            if(true) {
-                database.addTestResult(textTitle, wordsInText, timeMillis / 1000, LixCalculator.calcLix(textText),
-                        d); //TODO: change the 2 methods to return actual values.
-            }
+        if( d[0] < 6) {
+            database.addTestResult(textTitle, wordsInText, timeMillis / 1000, LixCalculator.calcLix(textText),
+                    d); //TODO: change the 2 methods to return actual values.
         }
 
       //  getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
