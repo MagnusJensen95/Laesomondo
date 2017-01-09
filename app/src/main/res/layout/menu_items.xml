@@ -9,7 +9,7 @@
         android:id="@+id/historie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circle"
+
         android:elevation="2dp"
         android:src="@drawable/his"
         circle:name="Historie"
@@ -19,7 +19,7 @@
         android:id="@+id/krimi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circle"
+
         android:elevation="2dp"
         android:src="@drawable/krimi"
         circle:name="Krimi" />
@@ -29,7 +29,7 @@
         android:id="@+id/mad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circle"
+
         android:elevation="2dp"
         android:src="@drawable/mad"
         circle:name="Mad" />
@@ -38,7 +38,7 @@
         android:id="@+id/natur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circle"
+
         android:src="@drawable/natur"
         circle:name="Natur" />
 
@@ -46,7 +46,7 @@
         android:id="@+id/sport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circle"
+
         android:elevation="2dp"
         android:src="@drawable/sport"
         circle:name="Sport" />
@@ -55,7 +55,7 @@
         android:id="@+id/random"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circle"
+
         android:elevation="2dp"
         android:src="@drawable/random"
         circle:name="Tilfældig" />

@@ -207,7 +207,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                 }
 
                 ImageView img_his = (ImageView) fgView.findViewById(R.id.historie);
-                img_his.setLayoutParams((new ViewGroup.LayoutParams(300,300))); //ToDO Ved ikke om denne skal med :)
+              //  img_his.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_his);
 
                 break;
@@ -221,7 +221,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                 circleLayout.removeViewAt(3);
                 circleLayout.removeViewAt(2);
                 circleLayout.removeViewAt(0);
-                img_krimi.setLayoutParams((new ViewGroup.LayoutParams(300,300))); //ToDO Ved ikke om denne skal med :)
+              //  img_krimi.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_krimi);
 
                 break;
@@ -235,7 +235,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                 circleLayout.removeViewAt(3);
                 circleLayout.removeViewAt(1);
                 circleLayout.removeViewAt(0);
-                img_mad.setLayoutParams((new ViewGroup.LayoutParams(300,300))); //ToDO Ved ikke om denne skal med :)
+               // img_mad.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_mad);
 
                 break;
@@ -249,7 +249,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                 circleLayout.removeViewAt(1);
                 circleLayout.removeViewAt(0);
 
-                img_natur.setLayoutParams((new ViewGroup.LayoutParams(300,300))); //ToDO Ved ikke om denne skal med :)
+               // img_natur.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_natur);
 
                 break;
@@ -263,7 +263,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                circleLayout.removeViewAt(1);
                circleLayout.removeViewAt(0);
 
-                img_sport.setLayoutParams((new ViewGroup.LayoutParams(300,300))); //ToDO Ved ikke om denne skal med :)
+                //img_sport.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_sport);
 
                 break;
@@ -278,7 +278,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                circleLayout.removeViewAt(1);
                circleLayout.removeViewAt(0);
 
-                img_random.setLayoutParams((new ViewGroup.LayoutParams(300,300))); //ToDO Ved ikke om denne skal med :)
+               // img_random.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_random);
 
                 break;
