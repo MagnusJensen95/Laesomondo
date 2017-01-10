@@ -34,7 +34,7 @@ public class ReadingTest extends Fragment {
     TextView tv;
 
     private SharedPreferences prefs;
-    private  int fontSize;
+    private int fontSize,fontColor,backgroundColor;
 
     @Nullable
     @Override
@@ -46,6 +46,8 @@ public class ReadingTest extends Fragment {
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         int getFontSize = prefs.getInt("textSize",fontSize);
+        int getFontColor = prefs.getInt("fontColor",fontColor);
+        int getBackgroundColor = prefs.getInt("backgroundColor",backgroundColor);
 
         bundle = getArguments();
         typeReadingTest = bundle.getString("readingTestType");
@@ -65,7 +67,15 @@ public class ReadingTest extends Fragment {
                 if(getFontSize == 0){
                     //skal ikke gøre noget
                 }
-                else{tv.setTextSize(getFontSize);}
+                else tv.setTextSize(getFontSize);
+                if(getFontColor == 0){
+                    //skal ikke gøre noget
+                }
+                else tv.setTextColor(getFontColor);
+                if(getBackgroundColor == 0){
+                    //skal ikke gøre noget
+                }
+                else tv.setBackgroundColor(getBackgroundColor);
                 tv.setText(toLoad);
                 break;
             case "readingTestNetTest":
