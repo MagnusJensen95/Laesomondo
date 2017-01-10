@@ -56,6 +56,19 @@ public class ReadingTest extends Fragment {
 
         int wordCount=0;
         String[] wordArray;
+
+        if(getFontSize == 0){
+            //skal ikke gøre noget
+        }
+        else tv.setTextSize(getFontSize);
+        if(getFontColor == 0){
+            //skal ikke gøre noget
+        }
+        else tv.setTextColor(getFontColor);
+        if(getBackgroundColor == 0){
+            //skal ikke gøre noget
+        }
+        else tv.setBackgroundColor(getBackgroundColor);
         switch (typeReadingTest) {
             case "readingTestOriginal":
                 toLoad = bundle.getString("TextToLoad");
@@ -64,18 +77,7 @@ public class ReadingTest extends Fragment {
                 wordCount = wordArray.length;
                 toSummary.putString("TextTitle", "Lorem Ipsum");
                 toSummary.putInt("WordsInText", wordCount);
-                if(getFontSize == 0){
-                    //skal ikke gøre noget
-                }
-                else tv.setTextSize(getFontSize);
-                if(getFontColor == 0){
-                    //skal ikke gøre noget
-                }
-                else tv.setTextColor(getFontColor);
-                if(getBackgroundColor == 0){
-                    //skal ikke gøre noget
-                }
-                else tv.setBackgroundColor(getBackgroundColor);
+
                 tv.setText(toLoad);
                 break;
             case "readingTestNetTest":

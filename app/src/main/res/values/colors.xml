@@ -9,7 +9,6 @@
     <color name="color_3">#e91e63</color>
 
     <string-array name="color_choices">
-        <item>#f44336</item>
         <item>#e91e63</item>
         <item>#9c27b0</item>
         <item>#673ab7</item>
