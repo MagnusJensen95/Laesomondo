@@ -2,7 +2,9 @@ package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +33,9 @@ public class ReadingTest extends Fragment {
     String typeReadingTest;
     TextView tv;
 
+    private SharedPreferences prefs;
+    private  int fontSize;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +43,9 @@ public class ReadingTest extends Fragment {
 
         final double readingTestReadingTimeStart = System.currentTimeMillis();
         tv = (TextView) v.findViewById(R.id.readingTestReadingMaterial);
+        prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        int getFontSize = prefs.getInt("textSize",fontSize);
 
         bundle = getArguments();
         typeReadingTest = bundle.getString("readingTestType");
@@ -54,6 +62,10 @@ public class ReadingTest extends Fragment {
                 wordCount = wordArray.length;
                 toSummary.putString("TextTitle", "Lorem Ipsum");
                 toSummary.putInt("WordsInText", wordCount);
+                if(getFontSize == 0){
+                    //skal ikke gøre noget
+                }
+                else{tv.setTextSize(getFontSize);}
                 tv.setText(toLoad);
                 break;
             case "readingTestNetTest":
@@ -63,6 +75,10 @@ public class ReadingTest extends Fragment {
                 wordCount = wordArray.length;
                 toSummary.putString("TextTitle", textTitle);
                 toSummary.putInt("WordsInText", wordCount);
+                if(getFontSize == 0){
+                    //skal ikke gøre noget
+                }
+                else{tv.setTextSize(getFontSize);}
                 tv.setText(toLoad);
                 break;
             default:

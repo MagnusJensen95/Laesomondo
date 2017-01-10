@@ -1,6 +1,7 @@
 package com.example.magnus.laesomondo.activities;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -93,7 +94,9 @@ public class DrawerActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(this,Settings.class);
+            startActivity(intent);
+         //   return true;
         }
 
         return super.onOptionsItemSelected(item);
