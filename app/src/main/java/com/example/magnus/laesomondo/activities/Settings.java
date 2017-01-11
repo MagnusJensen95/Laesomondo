@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -28,6 +28,19 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        Toolbar tool = (Toolbar) findViewById(R.id.settingsToolbar);
+
+        setSupportActionBar(tool);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        tool.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         exampleTextView = (TextView) findViewById(R.id.eksempelTxt);
         fontValue = (TextView) findViewById(R.id.sizeValue);
@@ -116,10 +129,10 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
             public void onClick(View v) {
                 exampleTextView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 exampleTextView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                exampleTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,18);
+                exampleTextView.setTextSize(18);
                 prefs.edit().putInt("fontColor",getResources().getColor(R.color.colorPrimaryDark)).commit();
                 prefs.edit().putInt("backgroundColor",getResources().getColor(R.color.colorPrimary)).commit();
-                prefs.edit().putInt("textSize",16).commit();
+                prefs.edit().putInt("textSize",18).commit();
             }
         });
     }
