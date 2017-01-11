@@ -29,7 +29,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Toolbar tool = (Toolbar) findViewById(R.id.settingsToolbar);
+        Toolbar tool = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(tool);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -58,11 +58,11 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
         if (saveFontSize == 0){
             fontSizeSeekBar.setProgress(12);
             exampleTextView.setTextSize(12);
-            fontValue.setText("skriftstørrelse : " + fontSizeSeekBar.getProgress());
+            fontValue.setText("Skriftstørrelse : " + fontSizeSeekBar.getProgress());
         }
         else {
             fontSizeSeekBar.setProgress(saveFontSize);
-          fontValue.setText("skriftstørrelse : " + fontSizeSeekBar.getProgress());
+          fontValue.setText("Skriftstørrelse : " + fontSizeSeekBar.getProgress());
            exampleTextView.setTextSize(saveFontSize);
         }
 
@@ -84,7 +84,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 exampleTextView.setTextSize(progress);
-                fontValue.setText("skriftstørrelse : "+ fontSizeSeekBar.getProgress());
+                fontValue.setText("Skriftstørrelse : "+ fontSizeSeekBar.getProgress());
 
                 prefs.edit().putInt("textSize",progress).commit();
             }
@@ -133,6 +133,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
                 prefs.edit().putInt("fontColor",getResources().getColor(R.color.colorPrimaryDark)).commit();
                 prefs.edit().putInt("backgroundColor",getResources().getColor(R.color.colorPrimary)).commit();
                 prefs.edit().putInt("textSize",18).commit();
+                fontSizeSeekBar.setProgress(18);
             }
         });
     }
