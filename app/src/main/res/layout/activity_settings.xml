@@ -59,19 +59,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnBackgroundColor"
-            android:layout_marginBottom="32dp"
-            android:layout_above="@+id/btnFontColor"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
         <Button
             android:text="Tekstfarve "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
             android:id="@+id/btnFontColor"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
             android:layout_alignStart="@+id/btnBackgroundColor"
             android:layout_alignEnd="@+id/btnBackgroundColor" />
+
+        <Button
+            android:text="Reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnReset"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/btnFontColor"
+            android:layout_alignEnd="@+id/btnFontColor" />
 
     </RelativeLayout>
 

@@ -21,7 +21,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
     private SharedPreferences prefs;
     private int fontSize,fontColor,backgroundColor;
 
-    private Button btnBackColor,btnFontColor;
+    private Button btnBackColor,btnFontColor,btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -33,6 +33,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
         fontSizeSeekBar = (SeekBar) findViewById(R.id.seekBarFontSize);
         btnBackColor = (Button) findViewById(R.id.btnBackgroundColor);
         btnFontColor = (Button) findViewById(R.id.btnFontColor);
+        btnReset = (Button) findViewById(R.id.btnReset);
         
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -106,6 +107,18 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
                         .setSelectedColor(Color.GREEN) //the checked color
                         .setTag("font") // tags can be useful when multiple components use the picker within an activity
                         .show();
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exampleTextView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                exampleTextView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                exampleTextView.setTextSize(16);
+                prefs.edit().putInt("fontColor",getResources().getColor(R.color.colorPrimaryDark)).commit();
+                prefs.edit().putInt("backgroundColor",getResources().getColor(R.color.colorPrimary)).commit();
+                prefs.edit().putInt("textSize",16).commit();
             }
         });
     }
