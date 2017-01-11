@@ -36,9 +36,10 @@ public class ReadingTest extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_reading_test, container, false);
 
+
+
         final double readingTestReadingTimeStart = System.currentTimeMillis();
         tv = (TextView) v.findViewById(R.id.readingTestReadingMaterial);
-
         bundle = getArguments();
         typeReadingTest = bundle.getString("readingTestType");
 
