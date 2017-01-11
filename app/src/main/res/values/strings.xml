@@ -42,5 +42,11 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
 
     <string name="action_settings">Settings</string>
 
+    <string name="UserProfileUserPre">Bruger:</string>
+    <string name="UserProfileUserPost"></string>
+    <string name="UserProfileNamePre">Navn:</string>
+    <string name="UserProfileNamePost"></string>
+    <string name="UserProfileAgePre">Alder:</string>
+    <string name="UserProfileAgePost"></string>
 
 </resources>
