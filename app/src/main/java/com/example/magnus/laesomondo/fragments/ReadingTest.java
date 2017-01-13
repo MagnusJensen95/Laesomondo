@@ -57,6 +57,7 @@ public class ReadingTest extends Fragment {
 
         final Bundle toSummary = new Bundle();
 
+
         int wordCount=0;
         String[] wordArray;
 

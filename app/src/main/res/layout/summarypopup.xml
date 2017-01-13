@@ -1,42 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+
 
     >
 
-    <TextView
-        style="@style/defaultText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/summaryPopUpScoreTBD"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-    <LinearLayout
+
+
+    <RelativeLayout
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <Button
-        style="@style/defaultButton"
-        android:text="@string/summaryPopUpTBD"
-        android:id="@+id/summaryPopUpTBD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/summaryPopUpScoreTBD"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            style="@style/defaultText"
+            android:text="Jensen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/summaryPopUpScoreTBD"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
 
-         />
 
-    <Button
-        style="@style/defaultButton"
-        android:text="Main Menu"
-        android:id="@+id/TryAgainButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/summaryPopUpTBD" />
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button
+            style="@style/defaultButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/summaryPopUpTBD"
+            android:id="@+id/summaryPopUpTBD"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"/>
+
+
+
+        <Button
+            style="@style/defaultButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Main Menu"
+            android:id="@+id/TryAgainButtonText"
+            android:layout_below="@+id/summaryPopUpTBD"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+
+
+            />
+
+
+    </RelativeLayout>
+
+
+
 </LinearLayout>
-
-</RelativeLayout>
