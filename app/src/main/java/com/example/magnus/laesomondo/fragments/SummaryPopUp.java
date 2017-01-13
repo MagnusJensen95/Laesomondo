@@ -85,7 +85,9 @@ public class SummaryPopUp extends DialogFragment {
         int timeMinutes = (int) Math.floor((timeMillis/1000)/60);
         int timeSeconds = (int) Math.floor(timeMillis/1000)%60;
 
-        scoreView.setText(getString(R.string.summaryPopUpReadingTime, timeMinutes, timeSeconds));
+        scoreView.setText(getString(R.string.summaryPopUpReadingTime, timeMinutes, timeSeconds)+"\n"+"\n"+
+                "Lixtallet : " +LixCalculator.calcLix(textText)+"\n");
+
 
         DBHandler database = new DBHandler(getActivity());
         double[] d = StatisticsCalculator.calculateComparativeReadingTime(timeMillis/1000, wordsInText);
