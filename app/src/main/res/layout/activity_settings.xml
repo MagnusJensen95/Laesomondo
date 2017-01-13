@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
         tools:context="com.example.magnus.laesomondo.activities.Settings">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:backgroundTint="@color/colorPrimaryDark"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
 
 
     <RelativeLayout
@@ -16,62 +32,73 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:weightSum="1">
+        android:weightSum="1"
+        >
+
 
         <TextView
-            android:text=" Skriftstørrelse"
+            style="@style/defaultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/sizeValue"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp"
-            android:id="@+id/fontSizeTxt" />
-
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/seekBarFontSize"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="21dp"
-            android:id="@+id/sizeValue" />
+            android:layout_centerHorizontal="true" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
             android:id="@+id/seekBarFontSize"
-            android:layout_below="@+id/fontSizeTxt"
+            android:thumbTint="@color/colorPrimaryDark"
+            android:progressTint="@color/colorPrimaryDark"
+            android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
     </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="233dp"
         >
 
         <Button
+
+
             android:text="Baggrundsfarve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnBackgroundColor"
-            android:layout_marginBottom="32dp"
-            android:layout_above="@+id/btnFontColor"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            />
 
         <Button
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:textColor="#ffffff"
             android:text="Tekstfarve "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
             android:id="@+id/btnFontColor"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/btnBackgroundColor"
             android:layout_alignStart="@+id/btnBackgroundColor"
+            android:layout_marginTop="13dp"
             android:layout_alignEnd="@+id/btnBackgroundColor" />
+
+        <Button
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:text="Reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnReset"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/btnFontColor"
+            android:layout_marginBottom="24dp"
+            android:layout_alignEnd="@+id/btnFontColor" />
 
     </RelativeLayout>
 
@@ -82,8 +109,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="159dp"
         android:orientation="horizontal">
 
         <TextView

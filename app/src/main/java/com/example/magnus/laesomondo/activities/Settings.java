@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -21,18 +22,32 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
     private SharedPreferences prefs;
     private int fontSize,fontColor,backgroundColor;
 
-    private Button btnBackColor,btnFontColor;
+    private Button btnBackColor,btnFontColor,btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Toolbar tool = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(tool);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        tool.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
         exampleTextView = (TextView) findViewById(R.id.eksempelTxt);
         fontValue = (TextView) findViewById(R.id.sizeValue);
         fontSizeSeekBar = (SeekBar) findViewById(R.id.seekBarFontSize);
         btnBackColor = (Button) findViewById(R.id.btnBackgroundColor);
         btnFontColor = (Button) findViewById(R.id.btnFontColor);
+        btnReset = (Button) findViewById(R.id.btnReset);
         
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -43,11 +58,11 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
         if (saveFontSize == 0){
             fontSizeSeekBar.setProgress(12);
             exampleTextView.setTextSize(12);
-            fontValue.setText("skriftstørrelse : " + fontSizeSeekBar.getProgress());
+            fontValue.setText("Skriftstørrelse : " + fontSizeSeekBar.getProgress());
         }
         else {
             fontSizeSeekBar.setProgress(saveFontSize);
-          fontValue.setText("skriftstørrelse : " + fontSizeSeekBar.getProgress());
+          fontValue.setText("Skriftstørrelse : " + fontSizeSeekBar.getProgress());
            exampleTextView.setTextSize(saveFontSize);
         }
 
@@ -69,7 +84,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 exampleTextView.setTextSize(progress);
-                fontValue.setText("skriftstørrelse : "+ fontSizeSeekBar.getProgress());
+                fontValue.setText("Skriftstørrelse : "+ fontSizeSeekBar.getProgress());
 
                 prefs.edit().putInt("textSize",progress).commit();
             }
@@ -106,6 +121,19 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
                         .setSelectedColor(Color.GREEN) //the checked color
                         .setTag("font") // tags can be useful when multiple components use the picker within an activity
                         .show();
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exampleTextView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                exampleTextView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                exampleTextView.setTextSize(18);
+                prefs.edit().putInt("fontColor",getResources().getColor(R.color.colorPrimaryDark)).commit();
+                prefs.edit().putInt("backgroundColor",getResources().getColor(R.color.colorPrimary)).commit();
+                prefs.edit().putInt("textSize",18).commit();
+                fontSizeSeekBar.setProgress(18);
             }
         });
     }

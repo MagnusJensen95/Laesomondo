@@ -101,6 +101,8 @@ public class SummaryPopUp extends DialogFragment {
         return v;
     }
 
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();
