@@ -62,23 +62,21 @@
 
         <Button
 
-
+            style="@style/defaultButton"
             android:text="Baggrundsfarve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnBackgroundColor"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/mybutton"
-            android:padding="10dp"
-            android:textColor="#ffffff"
+
+
             />
 
         <Button
-            android:background="@drawable/mybutton"
-            android:padding="10dp"
-            android:textColor="#ffffff"
-            android:text="Tekstfarve "
+            style="@style/defaultButton"
+
+            android:text="Tekstfarve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnFontColor"
@@ -88,9 +86,7 @@
             android:layout_alignEnd="@+id/btnBackgroundColor" />
 
         <Button
-            android:background="@drawable/mybutton"
-            android:padding="10dp"
-            android:textColor="#ffffff"
+            style="@style/defaultButton"
             android:text="Reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
