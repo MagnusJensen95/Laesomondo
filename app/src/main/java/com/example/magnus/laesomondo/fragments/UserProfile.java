@@ -71,8 +71,8 @@ public class UserProfile extends Fragment {
 
 
             }
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(points);
-            LineGraphSeries<DataPoint> avgSeries = new LineGraphSeries<>(avgPoints);
+            BarGraphSeries<DataPoint> series = new BarGraphSeries<>(points);
+            BarGraphSeries<DataPoint> avgSeries = new BarGraphSeries<>(avgPoints);
             avgSeries.setColor(Color.GREEN);
 
             graph.getGridLabelRenderer().setHorizontalAxisTitle("Tekst");
