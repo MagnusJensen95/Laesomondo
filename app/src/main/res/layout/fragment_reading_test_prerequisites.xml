@@ -87,7 +87,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginRight="15dp"
         android:max="10"
-        android:progress="8"
+        android:progress="1"
         android:thumbTint="@color/colorPrimaryDark"
         android:progressTint="@color/colorPrimaryDark"
         android:indeterminate="false"
