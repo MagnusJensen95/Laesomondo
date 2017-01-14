@@ -3,6 +3,12 @@
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#002c5a</color>
     <color name="colorAccent">#e91e63</color>
+    <color name="greyDialog">#EEEEEE</color>
+    <color name="colorNoob">#5FBFE7</color>
+    <color name="colorNoob2">#df5548</color>
+
+
+
 
     <color name="color_1">#2196f3</color>
     <color name="color_2">#ffc107</color>
