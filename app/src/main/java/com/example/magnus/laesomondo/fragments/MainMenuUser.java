@@ -20,7 +20,7 @@ public class MainMenuUser extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.activity_main_menu_user, container, false);
+        View view =  inflater.inflate(R.layout.fragment_main_menu_user, container, false);
 
         textFromNet = (Button)view.findViewById(R.id.mainMenuUserLoggedInTextFromNet);
         myProfile  = (Button)view.findViewById(R.id.mainMenuUserLoggedInMyProfile);

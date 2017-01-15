@@ -2,7 +2,6 @@ package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
 import android.graphics.Color;
-import android.opengl.GLDebugHelper;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +15,8 @@ import com.example.magnus.laesomondo.dataclasses.DBHandler;
 import com.example.magnus.laesomondo.dataclasses.GraphController;
 import com.example.magnus.laesomondo.dataclasses.Result;
 import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 
@@ -34,7 +31,7 @@ public class UserProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.activity_user_profile, container, false);
+        View v = inflater.inflate(R.layout.fragment_user_profile, container, false);
 
 
         db = new DBHandler(getActivity());

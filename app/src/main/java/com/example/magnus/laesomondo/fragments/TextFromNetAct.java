@@ -1,7 +1,10 @@
 package com.example.magnus.laesomondo.fragments;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.Intent;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
@@ -32,7 +35,8 @@ public class TextFromNetAct extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.activity_text_from_net, container, false);
+        View v = inflater.inflate(R.layout.fragment_text_from_net, container, false);
+        firstRunPreferences();
 
         web = (WebView) v.findViewById(R.id.webviewContent);
 
@@ -46,7 +50,7 @@ public class TextFromNetAct extends Fragment {
 
         web.loadUrl("http://www.google.com");
 
-        load = (Button)v.findViewById(R.id.loadPageButton);
+        load = (Button) v.findViewById(R.id.loadPageButton);
 
         load.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,15 +59,32 @@ public class TextFromNetAct extends Fragment {
             }
         });
 
+
+        if (getFirstRun()) {
+            setRunned();
+            new AlertDialog.Builder(getActivity(), R.style.MyDialogTheme)
+                    .setTitle("Valg af tekst")
+                    .setMessage("Gå ind på en hjemmeside,og find en tekst eller artikel og klik på kanppen Hent")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+
+                    .setIcon(android.R.drawable.ic_dialog_info)
+
+                    .show();
+        }
+
         return v;
     }
 
 
-    private class fetchHTMLText extends AsyncTask<Void, Void, Void>{
+    private class fetchHTMLText extends AsyncTask<Void, Void, Void> {
 
         String HTMLTExt = "";
         String HTMLTitel = "";
         String currentURL = web.getUrl().toString();
+
         @Override
         protected Void doInBackground(Void... params) {
 
@@ -95,9 +116,6 @@ public class TextFromNetAct extends Fragment {
             // textLoader.setUrl(this.web.getUrl());
 
 
-
-
-
             Bundle b = new Bundle();
             ReadingTest frag = new ReadingTest();
 
@@ -107,10 +125,38 @@ public class TextFromNetAct extends Fragment {
             frag.setArguments(b);
 
             getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
-                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main,
+                    R.animator.exit_to_right, R.animator.enter_from_right).replace(R.id.container_main,
                     frag).addToBackStack(null).commit();
 
         }
+    }
+
+    /**
+     * get if this is the first run
+     *
+     * @return returns true, if this is the first run
+     */
+    public boolean getFirstRun() {
+        return mPrefs.getBoolean("firstRun", true);
+    }
+
+    /**
+     * store the first run
+     */
+    public void setRunned() {
+        SharedPreferences.Editor edit = mPrefs.edit();
+        edit.putBoolean("firstRun", false);
+        edit.commit();
+    }
+
+    SharedPreferences mPrefs;
+
+    /**
+     * setting up preferences storage
+     */
+    public void firstRunPreferences() {
+        Context mContext = getActivity().getApplicationContext();
+        mPrefs = mContext.getSharedPreferences("myAppPrefs", 0);
     }
 
 }

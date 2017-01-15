@@ -1,29 +1,20 @@
 package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
-import com.example.magnus.laesomondo.activities.DrawerActivity;
-import com.example.magnus.laesomondo.fragments.SummaryPopUp;
-
-import java.lang.reflect.Array;
 
 public class ReadingTest extends Fragment {
 
@@ -40,7 +31,7 @@ public class ReadingTest extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_reading_test, container, false);
+        View v = inflater.inflate(R.layout.fragment_reading_test, container, false);
 
         final double readingTestReadingTimeStart = System.currentTimeMillis();
         tv = (TextView) v.findViewById(R.id.readingTestReadingMaterial);

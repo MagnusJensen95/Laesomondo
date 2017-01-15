@@ -18,7 +18,7 @@ public class MainMenu extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       View v =  inflater.inflate(R.layout.activity_main_menu, container, false);
+       View v =  inflater.inflate(R.layout.fragment_main_menu, container, false);
 
         logIn = (Button)v.findViewById(R.id.mainMenuLogInButton);
 
