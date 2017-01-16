@@ -27,9 +27,6 @@ public class MainMenu extends Fragment {
         textFromNetButton = (Button)v.findViewById(R.id.mainMenuWebcontentButton);
         laeseTestButton  = (Button)v.findViewById(R.id.mainMenuUserLoggedInReadingTestButton);
 
-        final Timer timer = new Timer();
-        timer.start();
-
         View.OnClickListener listener = new View.OnClickListener() {
 
             @Override
@@ -37,7 +34,6 @@ public class MainMenu extends Fragment {
                 int buttonId = view.getId();
                 switch (buttonId){
                     case R.id.mainMenuLogInButton:
-                        Log.i("time", String.valueOf(timer.getTimeToPrint()));
                         getFragmentManager().beginTransaction()
                                 .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                                         R.animator.exit_to_right, R.animator.enter_from_right )
