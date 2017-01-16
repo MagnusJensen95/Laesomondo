@@ -2,31 +2,44 @@ package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.dataclasses.Timer;
 
 public class ReadingTest extends Fragment {
 
     String toLoad;
     String textTitle;
+    int position;
 
     Bundle bundle;
     String typeReadingTest;
     TextView tv;
+    ImageButton pauseButton;
+    Timer timer;
+    boolean paused = false;
+    ScrollView scroller;
 
     private SharedPreferences prefs;
     private int fontSize,fontColor,backgroundColor;
+    Button readingTestStopShowPopUp;
 
     @Nullable
     @Override
@@ -36,10 +49,55 @@ public class ReadingTest extends Fragment {
         final double readingTestReadingTimeStart = System.currentTimeMillis();
         tv = (TextView) v.findViewById(R.id.readingTestReadingMaterial);
         prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        timer = new Timer();
+        timer.start();
+        int getBackgroundColor = prefs.getInt("backgroundColor",backgroundColor);
+
+        readingTestStopShowPopUp = (Button) v.findViewById(R.id.readingTestStopButton);
+
+        scroller = (ScrollView)v.findViewById(R.id.scrollView);
+
+
+        pauseButton = (ImageButton)v.findViewById(R.id.pauseButton);
+        pauseButton.setBackgroundColor(Color.GRAY);
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!paused) {
+                    timer.pause();
+                    paused = true;
+                    pauseButton.setImageResource(android.R.drawable.ic_media_play);
+                    pauseButton.setBackgroundColor(Color.GREEN);
+                    tv.setVisibility(View.INVISIBLE);
+                    scroller.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            return true;
+                        }
+                    });
+                    readingTestStopShowPopUp.setVisibility(View.INVISIBLE);
+
+
+                }
+                else{
+                    timer.start();
+                    paused = false;
+                    pauseButton.setImageResource(android.R.drawable.ic_media_pause);
+                    pauseButton.setBackgroundColor(Color.GRAY);
+                    tv.setVisibility(View.VISIBLE);
+                    tv.setVerticalScrollbarPosition(position);
+                    scroller.setOnTouchListener(null);
+                    readingTestStopShowPopUp.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
 
         int getFontSize = prefs.getInt("textSize",fontSize);
         int getFontColor = prefs.getInt("fontColor",fontColor);
-        int getBackgroundColor = prefs.getInt("backgroundColor",backgroundColor);
+
 
        final AppCompatActivity actionBar =  (AppCompatActivity) getActivity();
         actionBar.getSupportActionBar().hide();
@@ -64,6 +122,7 @@ public class ReadingTest extends Fragment {
             //skal ikke gøre noget
         }
         else tv.setBackgroundColor(getBackgroundColor);
+        v.setBackgroundColor(getBackgroundColor);
         switch (typeReadingTest) {
             case "readingTestOriginal":
                 toLoad = bundle.getString("TextToLoad");
@@ -93,16 +152,19 @@ public class ReadingTest extends Fragment {
         }
 
         tv.setMovementMethod(new ScrollingMovementMethod());
-        Button readingTestStopShowPopUp = (Button) v.findViewById(R.id.readingTestStopButton);
+
         readingTestStopShowPopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 double readingTestReadingTimeStop = System.currentTimeMillis()-readingTestReadingTimeStart;
-                toSummary.putDouble("ReadingTime", readingTestReadingTimeStop);
+                toSummary.putDouble("ReadingTime", timer.getTimeToPrint());
+                Log.i("noob",""+timer.getTimeToPrint());
                 toSummary.putString("TextToLoad", toLoad);
                 SummaryPopUp summary = new SummaryPopUp();
                 summary.setArguments(toSummary);
                 summary.show(getFragmentManager(), "Jensen");
+
                 actionBar.getSupportActionBar().show();
 
 
