@@ -2,12 +2,14 @@ package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.dataclasses.Timer;
 
 public class MainMenu extends Fragment {
 
@@ -32,7 +34,6 @@ public class MainMenu extends Fragment {
                 int buttonId = view.getId();
                 switch (buttonId){
                     case R.id.mainMenuLogInButton:
-
                         getFragmentManager().beginTransaction()
                                 .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                                         R.animator.exit_to_right, R.animator.enter_from_right )

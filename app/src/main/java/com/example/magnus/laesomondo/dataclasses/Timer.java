@@ -9,7 +9,7 @@ public class Timer {
     private static long timeSpentPaused = 0;
 
     public Timer(){
-        timer = 0;
+
     }
 
     public void start(){
@@ -30,6 +30,6 @@ public class Timer {
     }
 
     public long getTimeToPrint(){
-        return timer-(System.currentTimeMillis()-timeSpentPaused);
+        return ((System.currentTimeMillis()-timer)-timeSpentPaused);
     }
 }
