@@ -2,11 +2,13 @@ package com.example.magnus.laesomondo.fragments;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.dataclasses.DBHandler;
@@ -36,6 +39,7 @@ public class SummaryPopUp extends DialogFragment {
     int wordsInText;
     String textTitle;
     String textText;
+    boolean firstPress;
 
 
     //TODO: Implement userLoggedIn variable for determining if profile
@@ -60,10 +64,11 @@ public class SummaryPopUp extends DialogFragment {
                       .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                               R.animator.exit_to_right, R.animator.enter_from_right )
                        .replace(R.id.container_main,
-                                new MainMenu()).addToBackStack(null).commit();
+                                new MainMenu()).commit();
                 dismiss();
             }
         });
+        firstPress = false;
         profile = (ImageView) v.findViewById(R.id.myProfileButton);
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +78,7 @@ public class SummaryPopUp extends DialogFragment {
                       .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                                R.animator.exit_to_right, R.animator.enter_from_right )
                      .replace(R.id.container_main,
-                               new UserProfile()).addToBackStack(null).commit();
+                               new UserProfile()).commit();
                 dismiss();
 
             }
@@ -112,6 +117,7 @@ public class SummaryPopUp extends DialogFragment {
 
       //  getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
      //   getDialog().getWindow().setBackgroundDrawable(null);
+        setCancelable(false);
 
         return v;
     }
@@ -126,9 +132,11 @@ public class SummaryPopUp extends DialogFragment {
     }
 
 
-
-
-
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        getFragmentManager().beginTransaction().replace(R.id.container_main, new MainMenu());
+    }
 
     @Override
     public void onStart() {
@@ -151,9 +159,20 @@ public class SummaryPopUp extends DialogFragment {
     }
 
     @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+
+
+    }
+
+    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
+
+
+
 
 
         return dialog;
