@@ -1,8 +1,10 @@
 package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ public class MainMenu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v =  inflater.inflate(R.layout.fragment_main_menu, container, false);
+
+
 
         logIn = (Button)v.findViewById(R.id.mainMenuLogInButton);
 
@@ -66,6 +70,21 @@ public class MainMenu extends Fragment {
         logIn.setOnClickListener(listener);
         textFromNetButton.setOnClickListener(listener);
         laeseTestButton.setOnClickListener(listener);
+
+        v.setFocusableInTouchMode(true);
+        v.requestFocus();
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK)
+                {
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
 
         return v;
     }

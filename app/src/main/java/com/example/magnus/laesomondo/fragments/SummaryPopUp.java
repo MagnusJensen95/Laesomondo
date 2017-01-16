@@ -61,10 +61,10 @@ public class SummaryPopUp extends DialogFragment {
            @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                      .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
-                              R.animator.exit_to_right, R.animator.enter_from_right )
+                      .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left)
                        .replace(R.id.container_main,
                                 new MainMenu()).commit();
+
                 dismiss();
             }
         });
