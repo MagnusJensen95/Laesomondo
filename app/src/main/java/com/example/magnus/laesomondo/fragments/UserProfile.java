@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +92,23 @@ public class UserProfile extends Fragment {
 
         //resultater.setText(titelsInDB);
 
-
+        v.setFocusableInTouchMode(true);
+        v.requestFocus();
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK)
+                {
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                                    R.animator.exit_to_right, R.animator.enter_from_right )
+                            .replace(R.id.container_main,
+                                    new MainMenuUser()).addToBackStack(null).commit();
+                    return true;
+                }
+                return false;
+            }
+        });
         return v;
     }
 
