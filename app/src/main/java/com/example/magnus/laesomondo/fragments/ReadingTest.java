@@ -157,7 +157,7 @@ public class ReadingTest extends Fragment {
             @Override
             public void onClick(View v) {
 
-                double readingTestReadingTimeStop = System.currentTimeMillis()-readingTestReadingTimeStart;
+                timer.pause();
                 toSummary.putDouble("ReadingTime", timer.getTimeToPrint());
                 Log.i("noob",""+timer.getTimeToPrint());
                 toSummary.putString("TextToLoad", toLoad);
@@ -167,6 +167,7 @@ public class ReadingTest extends Fragment {
 
                 actionBar.getSupportActionBar().show();
 
+                timer.reset();
 
                //getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left, R.animator.exit_to_right, R.animator.enter_from_right ).add(R.id.container_main, summary).commit();
             }
