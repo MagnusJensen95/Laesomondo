@@ -65,6 +65,7 @@ public class SummaryPopUp extends DialogFragment {
                               R.animator.exit_to_right, R.animator.enter_from_right )
                        .replace(R.id.container_main,
                                 new MainMenu()).commit();
+
                 dismiss();
             }
         });

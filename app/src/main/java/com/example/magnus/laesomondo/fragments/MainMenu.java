@@ -20,6 +20,7 @@ public class MainMenu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v =  inflater.inflate(R.layout.fragment_main_menu, container, false);
 
+
         logIn = (Button)v.findViewById(R.id.mainMenuLogInButton);
 
         textFromNetButton = (Button)v.findViewById(R.id.mainMenuWebcontentButton);
@@ -65,6 +66,8 @@ public class MainMenu extends Fragment {
         logIn.setOnClickListener(listener);
         textFromNetButton.setOnClickListener(listener);
         laeseTestButton.setOnClickListener(listener);
+
+
 
         return v;
     }
