@@ -1,6 +1,7 @@
 package com.example.magnus.laesomondo.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ public class MainMenu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v =  inflater.inflate(R.layout.fragment_main_menu, container, false);
+
 
 
         logIn = (Button)v.findViewById(R.id.mainMenuLogInButton);
