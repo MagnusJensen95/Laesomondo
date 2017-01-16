@@ -6,7 +6,8 @@ package com.example.magnus.laesomondo.dataclasses;
 public class Timer {
 
     private static long timer = 0;
-    private static long timeSpentPaused = 0;
+    private static long timeSpentPausedStop = 0;
+    private static long timeSpentPausedStart = 0;
 
     public Timer(){
 
@@ -16,20 +17,21 @@ public class Timer {
         if(timer==0){
             timer = System.currentTimeMillis();
         }else{
-            timeSpentPaused = System.currentTimeMillis() - timeSpentPaused;
+            timeSpentPausedStop+=timeSpentPausedStop - timeSpentPausedStart;
         }
     }
 
     public void pause(){
-        timeSpentPaused = System.currentTimeMillis();
+        timeSpentPausedStart = System.currentTimeMillis();
     }
 
     public void reset(){
         timer = 0;
-        timeSpentPaused = 0;
+        timeSpentPausedStop = 0;
+        timeSpentPausedStart = 0;
     }
 
     public long getTimeToPrint(){
-        return ((System.currentTimeMillis()-timer)-timeSpentPaused);
+        return ((System.currentTimeMillis()-timer)-timeSpentPausedStop);
     }
 }
