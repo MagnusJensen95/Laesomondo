@@ -43,11 +43,11 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="action_settings">Indstillinger</string>
 
     <string name="UserProfileUserPre">Bruger:</string>
-    <string name="UserProfileUserPost"></string>
+    <string name="UserProfileUserPost">Master567</string>
     <string name="UserProfileNamePre">Navn:</string>
-    <string name="UserProfileNamePost"></string>
+    <string name="UserProfileNamePost">Kim Hansen</string>
     <string name="UserProfileAgePre">Alder:</string>
-    <string name="UserProfileAgePost"></string>
+    <string name="UserProfileAgePost">19</string>
     <string name="minProfilActionBar">minProfilActionBar</string>
 
 </resources>

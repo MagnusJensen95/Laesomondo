@@ -23,6 +23,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="subText" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">12dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="defaultButton" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@drawable/mybutton</item>
         <item name="android:textColor">#ffffff</item>
