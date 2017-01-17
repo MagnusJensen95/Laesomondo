@@ -2,11 +2,11 @@
     <string name="app_name">Laesomondo</string>
 
     <string name="mainMenuTitle">Laesomondo</string>
-    <string name="mainMenuReadingTestButton">Tag en Læsetest</string>
+    <string name="mainMenuReadingTestButton">Læsetest</string>
     <string name="mainMenuLogInButton">Log Ind</string>
 
     <string name="mainMenuUserLoggedInTitle">Laesomondo</string>
-    <string name="mainMenuUserLoggedInReadingTestButton">Tag en Læsetest</string>
+    <string name="mainMenuUserLoggedInReadingTestButton">Læsetest</string>
     <string name="mainMenuUserLoggedInMyProfile">Min Profil</string>
     <string name="mainMenuUserLoggedInLogOut">Log Ud</string>
 
@@ -34,7 +34,7 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="summaryPopUpTryAgainButtonText">Ny Test</string>
     <string name="summaryPopUpTBD">Min Side</string>
     <string name="udvikling">Udvikling</string>
-    <string name="main_menu_tekst_fra_nettet">Tekst Fra Nettet</string>
+    <string name="main_menu_tekst_fra_nettet">Tekst Fra Web</string>
     <string name="title_activity_drawer">DrawerActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

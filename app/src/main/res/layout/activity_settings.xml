@@ -51,13 +51,15 @@
             android:thumbTint="@color/colorPrimaryDark"
             android:progressTint="@color/colorPrimaryDark"
             android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:max="50"/>
     </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="233dp"
+
         >
 
         <Button
@@ -69,7 +71,8 @@
             android:id="@+id/btnBackgroundColor"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-
+            android:drawableLeft="@drawable/ic_format_color_fill"
+            android:drawablePadding="10dp"
 
             />
 
@@ -83,7 +86,11 @@
             android:layout_below="@+id/btnBackgroundColor"
             android:layout_alignStart="@+id/btnBackgroundColor"
             android:layout_marginTop="13dp"
-            android:layout_alignEnd="@+id/btnBackgroundColor" />
+            android:layout_alignEnd="@+id/btnBackgroundColor"
+            android:drawableLeft="@drawable/ic_format_color_text"
+            android:textAlignment="textStart"
+            android:drawablePadding="10dp"
+            />
 
         <Button
             style="@style/defaultButton"
@@ -94,7 +101,11 @@
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/btnFontColor"
             android:layout_marginBottom="24dp"
-            android:layout_alignEnd="@+id/btnFontColor" />
+            android:layout_alignEnd="@+id/btnFontColor"
+            android:drawableLeft="@drawable/ic_restore"
+            android:textAlignment="textStart"
+            android:drawablePadding="10dp"
+            />
 
     </RelativeLayout>
 
@@ -105,17 +116,16 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
-        android:layout_height="159dp"
-        android:orientation="horizontal">
+        android:layout_height="100dp"
+        android:orientation="vertical">
 
         <TextView
-            android:text="Dette er en tekst til at vise hvordan de tekst vil se ud når du skal til at læse"
-            android:layout_width="wrap_content"
-            android:layout_height="159dp"
-            android:layout_alignParentStart="true"
+            android:text="Tekst test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/eksempelTxt"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:textAlignment="center"/>
 
     </LinearLayout>
 

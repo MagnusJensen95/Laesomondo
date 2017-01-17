@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ import java.io.IOException;
 public class TextFromNetAct extends Fragment {
 
     WebView web;
-    Button load;
+    FloatingActionButton load;
 
     @Nullable
     @Override
@@ -50,7 +51,7 @@ public class TextFromNetAct extends Fragment {
 
         web.loadUrl("http://www.google.com");
 
-        load = (Button) v.findViewById(R.id.loadPageButton);
+        load = (FloatingActionButton) v.findViewById(R.id.floatingActionButton);
 
         load.setOnClickListener(new View.OnClickListener() {
             @Override
