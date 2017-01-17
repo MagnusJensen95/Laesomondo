@@ -17,6 +17,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.magnus.laesomondo.R;
 
@@ -125,9 +126,16 @@ public class TextFromNetAct extends Fragment {
             b.putString("Title", HTMLTitel);
             frag.setArguments(b);
 
-            getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
-                    R.animator.exit_to_right, R.animator.enter_from_right).replace(R.id.container_main,
-                    frag).addToBackStack(null).commit();
+            if (HTMLTExt.length() > 0) {
+                getFragmentManager().beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right).replace(R.id.container_main,
+                        frag).addToBackStack(null).commit();
+            }
+
+            else {
+                Toast.makeText(getActivity(), "Der er ingen tekst i dit nuværende web-vindue!", Toast.LENGTH_SHORT).show();
+
+            }
 
         }
     }
