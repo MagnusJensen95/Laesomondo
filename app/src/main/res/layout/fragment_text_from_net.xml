@@ -12,7 +12,6 @@
 
 
 
-
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,6 +23,22 @@
 
 
     </WebView>
+
+
+    <TextView
+        android:id="@+id/activity_main_redtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/floatingActionButton"
+
+        />
+
+    <com.nhaarman.supertooltips.ToolTipRelativeLayout
+        android:id="@+id/activity_main_tooltipRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
