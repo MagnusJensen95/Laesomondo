@@ -95,9 +95,11 @@ getSupportActionBar().show();
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this,Settings.class);
-            startActivity(intent);
+        if (id == R.id.action_myProfile) {
+
+            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
+
          //   return true;
         }
 
@@ -113,8 +115,7 @@ getSupportActionBar().show();
 
 
         if (id == R.id.myProfileDrawer) {
-            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
-                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
+
         } else if (id == R.id.readingTestDrawer) {
             manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                     R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new ReadingTestPrerequisites()).addToBackStack("").commit();
@@ -126,7 +127,18 @@ getSupportActionBar().show();
 
         } else if (id == R.id.aboutDrawer) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_settings) {
+
+            Intent intent = new Intent(this,Settings.class);
+            startActivity(intent);
+
+        }
+        else if (id == R.id.nav_logOut) {
+
+            manager.beginTransaction()
+                    .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left)
+                    .replace(R.id.container_main,
+                            new MainMenu()).commit();
 
         }
 

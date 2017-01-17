@@ -48,5 +48,6 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="UserProfileNamePost"></string>
     <string name="UserProfileAgePre">Alder:</string>
     <string name="UserProfileAgePost"></string>
+    <string name="minProfilActionBar">minProfilActionBar</string>
 
 </resources>
