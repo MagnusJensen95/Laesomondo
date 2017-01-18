@@ -143,7 +143,7 @@ getSupportActionBar().show();
             if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(AboutFrag.class))) {
 
                 manager.beginTransaction()
-                        .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left)
+                        .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,R.animator.exit_to_right, R.animator.enter_from_right)
                         .replace(R.id.container_main,
                                 new AboutFrag()).addToBackStack("").commit();
             }else {Toast.makeText(this, "Du er allerede på denne side", Toast.LENGTH_SHORT).show();}
