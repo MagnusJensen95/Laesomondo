@@ -23,6 +23,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="subText" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">12dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="defaultButton" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@drawable/mybutton</item>
         <item name="android:textColor">#ffffff</item>
@@ -32,6 +39,20 @@
 
     <style name="beautyButton" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@drawable/mybutton</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="logOutButton" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/logoutbtn</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="loginButton" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/loginbtn</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">15dp</item>
         <item name="android:padding">15dp</item>

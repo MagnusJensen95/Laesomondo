@@ -9,37 +9,71 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.magnus.laesomondo.fragments.MainMenu">
 
+    <LinearLayout android:orientation="horizontal" android:layout_height="fill_parent" android:layout_width="fill_parent"
+        android:layout_below="@+id/relativeLayout2">
+
+        <LinearLayout android:layout_weight="1" android:layout_height="fill_parent" android:layout_width="0dp">
+        </LinearLayout>
+
+        <RelativeLayout  android:layout_weight="3" android:layout_height="fill_parent" android:layout_width="0dp" >
 
 
-    <Button
-        style="@style/defaultButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/main_menu_tekst_fra_nettet"
-        android:id="@+id/mainMenuWebcontentButton"
-        android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+            <Button
+                style="@style/defaultButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main_menu_tekst_fra_nettet"
+                android:id="@+id/mainMenuWebcontentButton"
+                android:layout_below="@+id/mainMenuUserLoggedInReadingTestButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:textAlignment="textStart"
 
-    <Button
-        style="@style/defaultButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/mainMenuLogInButton"
-        android:id="@+id/mainMenuLogInButton"
-        android:layout_below="@+id/mainMenuWebcontentButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        />
+                />
 
-    <Button
-        style="@style/defaultButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/mainMenuReadingTestButton"
-        android:id="@+id/mainMenuUserLoggedInReadingTestButton"
-        android:layout_marginTop="50dp"
+            <Button
+                style="@style/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mainMenuLogInButton"
+                android:id="@+id/mainMenuLogInButton"
 
-        android:layout_alignParentStart="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:drawableLeft="@drawable/ic_lock_open"
+                android:textAlignment="center"
+
+                />
+
+            <Button
+                style="@style/defaultButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mainMenuReadingTestButton"
+                android:id="@+id/mainMenuUserLoggedInReadingTestButton"
+                android:layout_marginTop="50dp"
+                android:layout_alignParentStart="true"
+                android:drawableLeft="@drawable/ic_school"
+                android:drawablePadding="10dp"
+                android:textAlignment="textStart"
+
+
+                />
+        </RelativeLayout>
+
+        <LinearLayout android:layout_weight="1" android:layout_height="fill_parent" android:layout_width="0dp"
+            android:weightSum="1" android:paddingLeft="5dp">
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
 
 </RelativeLayout>

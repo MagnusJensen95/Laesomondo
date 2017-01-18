@@ -19,30 +19,13 @@
         android:weightSum="1">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@color/colorMyProfile"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/imageView1"
-            android:src="@drawable/krimi"/>
+            android:src="@drawable/ic_account"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:text="@string/UserProfileUserPre"
-            android:id="@+id/textView1"
-            android:layout_alignTop="@+id/imageView1"
-            android:layout_toEndOf="@+id/imageView1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:text="@string/UserProfileUserPost"
-            android:id="@+id/textView2"
-            android:layout_alignTop="@+id/imageView1"
-            android:layout_toEndOf="@+id/textView1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,33 +68,47 @@
 
     </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorPrimaryDark"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seneste Resultater"
+        android:textAlignment="center"
+        style="@style/defaultText"
+        android:elevation="5dp"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark"
+                />
     <LinearLayout
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="71dp"
-            android:text="Hej hvad sker der her i kommunen?"
-            android:id="@+id/textView123123123" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView"
+               >
+
+            </ListView>
+
+
+
 
     </LinearLayout>
 
-    <View
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorPrimaryDark"/>
+        android:layout_height="wrap_content"
+        android:text="Overblik over din udvikling"
+        android:textAlignment="center"
+        style="@style/defaultText"
+        android:elevation="5dp"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

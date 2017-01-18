@@ -11,8 +11,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.example.magnus.laesomondo.fragments.MainMenu;
@@ -95,9 +97,14 @@ getSupportActionBar().show();
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this,Settings.class);
-            startActivity(intent);
+        if (id == R.id.action_myProfile) {
+            if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(UserProfile.class)))
+            {
+
+                manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right).replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
+            }
+            else {Toast.makeText(this, "Du er allerede på min profil", Toast.LENGTH_SHORT).show();}
          //   return true;
         }
 
@@ -113,20 +120,37 @@ getSupportActionBar().show();
 
 
         if (id == R.id.myProfileDrawer) {
-            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
-                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
+            if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(UserProfile.class))) {
+                manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right).replace(R.id.container_main, new UserProfile()).addToBackStack("").commit();
+            }else {Toast.makeText(this, "Du er allerede på Min Profil", Toast.LENGTH_SHORT).show();}
+
         } else if (id == R.id.readingTestDrawer) {
-            manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
-                    R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new ReadingTestPrerequisites()).addToBackStack("").commit();
+            if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(ReadingTestPrerequisites.class))) {
+                manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
+                        R.animator.exit_to_right, R.animator.enter_from_right).replace(R.id.container_main, new ReadingTestPrerequisites()).addToBackStack("").commit();
+            }else {Toast.makeText(this, "Du er allerede på Tag en test", Toast.LENGTH_SHORT).show();}
 
         } else if (id == R.id.textFromNetDrawer) {
-
+            if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(TextFromNetAct.class))) {
             manager.beginTransaction().setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left,
                     R.animator.exit_to_right, R.animator.enter_from_right ).replace(R.id.container_main, new TextFromNetAct()).addToBackStack("").commit();
-
+            }else {Toast.makeText(this, "Du er allerede på Tekst Fra Web", Toast.LENGTH_SHORT).show();}
         } else if (id == R.id.aboutDrawer) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_settings) {
+
+            Intent intent = new Intent(this,Settings.class);
+            startActivity(intent);
+
+        }
+        else if (id == R.id.nav_logOut) {
+            if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(MainMenu.class))) {
+            manager.beginTransaction()
+                    .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left)
+                    .replace(R.id.container_main,
+                            new MainMenu()).commit();
+            }else {Toast.makeText(this, "Du er allerede Logget ud", Toast.LENGTH_SHORT).show();}
 
         }
 

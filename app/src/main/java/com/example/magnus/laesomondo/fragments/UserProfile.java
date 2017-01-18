@@ -9,9 +9,12 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.magnus.laesomondo.R;
+import com.example.magnus.laesomondo.dataclasses.CustomList;
 import com.example.magnus.laesomondo.dataclasses.DBHandler;
 import com.example.magnus.laesomondo.dataclasses.GraphController;
 import com.example.magnus.laesomondo.dataclasses.Result;
@@ -20,6 +23,7 @@ import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserProfile extends Fragment {
 
@@ -27,6 +31,11 @@ public class UserProfile extends Fragment {
     GraphView graph;
     GraphController gc;
     DBHandler db;
+    ListView listView;
+    String[] text = {"Historie","Krimi","Mad","Natur","Sport","Tilfældig"};
+    String[] subText = {"Lix : 40","Lix : 42","Lix : 30","Lix : 50","Lix : 20","Lix : 38"};
+    Integer[] imageId = {R.drawable.his,R.drawable.krimi,R.drawable.mad,R.drawable.natur,R.drawable.sport,R.drawable.random};
+
 
     @Nullable
     @Override
@@ -39,6 +48,10 @@ public class UserProfile extends Fragment {
 
         graph = (GraphView) v.findViewById(R.id.progressGraph);
 
+        listView = (ListView) v.findViewById(R.id.listView);
+        CustomList adapter = new CustomList(getActivity(),text,imageId,subText);
+
+        listView.setAdapter(adapter);
        // graph.getViewport().setScrollable(true);
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setYAxisBoundsManual(true);

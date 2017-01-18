@@ -20,14 +20,24 @@
             android:title="Om Appen" />
     </group>
 
-    <item android:title="Del Resultater">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
 
-        </menu>
-    </item>
+        <item android:title=" ">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_settings"
+
+
+                    android:title="Indstillinger" />
+                <item
+                    android:id="@+id/nav_logOut"
+
+                    android:title="Log Ud" />
+            </menu>
+
+        </item>
+
+
+
 
 </menu>

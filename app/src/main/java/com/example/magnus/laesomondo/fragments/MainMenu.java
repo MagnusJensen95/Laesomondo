@@ -9,22 +9,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.dataclasses.Timer;
+
 
 public class MainMenu extends Fragment {
 
     private Button logIn, textFromNetButton, laeseTestButton;
 
 
-
+    public int counter ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v =  inflater.inflate(R.layout.fragment_main_menu, container, false);
 
-
+    counter = 0;
 
         logIn = (Button)v.findViewById(R.id.mainMenuLogInButton);
 
@@ -78,6 +80,14 @@ public class MainMenu extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_BACK)
                 {
+                    counter++;
+                    if(counter == 1){
+                        Toast.makeText(getActivity(), "Klik tilbage igen for at afslutte", Toast.LENGTH_SHORT).show();
+                    }
+                    if(counter == 4){
+                        getActivity().finish();
+                    }
+
                     return true;
                 }
                 return false;
