@@ -26,12 +26,16 @@ public class MainMenu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View v =  inflater.inflate(R.layout.fragment_main_menu, container, false);
 
+        // en counter til at tælle hvor mange gange bruger har klikket på tilabge knappen,
+        // anvendes til at hvis bruger klikker to gange tilbage skal appen lukke ned
     counter = 0;
 
         logIn = (Button)v.findViewById(R.id.mainMenuLogInButton);
 
         textFromNetButton = (Button)v.findViewById(R.id.mainMenuWebcontentButton);
         laeseTestButton  = (Button)v.findViewById(R.id.mainMenuUserLoggedInReadingTestButton);
+
+        //Sætter clicklistner på de forskellige knapper vi har i vores view
 
         View.OnClickListener listener = new View.OnClickListener() {
 
@@ -72,6 +76,8 @@ public class MainMenu extends Fragment {
         logIn.setOnClickListener(listener);
         textFromNetButton.setOnClickListener(listener);
         laeseTestButton.setOnClickListener(listener);
+
+        // Sætter en keylistiner på viewet. Hvis man klikker 2 gange på tilbage knappen, så afslutter man appen.
 
         v.setFocusableInTouchMode(true);
         v.requestFocus();

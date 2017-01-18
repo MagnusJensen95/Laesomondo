@@ -28,8 +28,7 @@ import static android.view.View.VISIBLE;
  * Created by Tobias on 06-01-2017.
  */
 
-public class ReadingTestPrerequisites extends Fragment implements CircleLayout.OnItemSelectedListener,
-        CircleLayout.OnItemClickListener, CircleLayout.OnRotationFinishedListener {
+public class ReadingTestPrerequisites extends Fragment implements CircleLayout.OnItemClickListener, CircleLayout.OnRotationFinishedListener {
 
     private CircleLayout circleLayout;
     private TextView selectedTextView;
@@ -45,6 +44,8 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fgView = inflater.inflate(R.layout.fragment_reading_test_prerequisites, container, false);
+
+        //  Initialisere variablerne
 
         startTestButton = (Button) fgView.findViewById(R.id.btnStart);
         startTestButton.setVisibility(GONE);
@@ -63,6 +64,8 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
         readingTimeTxt = (TextView) fgView.findViewById(R.id.TidLaese);
 
         readingDifficultyTxt = (TextView) fgView.findViewById(R.id.TextSvaerhedsgrad);
+
+        // Sætter en changeListiner på, som gør at når seekbar får et input, skal den angivende tekst opdateres
 
         seekBarTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -86,7 +89,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
             }
         });
 
-
+// Sætter en changeListiner på, som gør at når seekbar får et input, skal den angivende tekst opdateres
         seekBarDifficulty.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
@@ -127,20 +130,23 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
         });
 
 
-        // set listeners
+        // Sætter listeners til vores circle menu
         circleLayout = (CircleLayout) fgView.findViewById(R.id.circle_layout);
-        circleLayout.setOnItemSelectedListener(this);
         circleLayout.setOnItemClickListener(this);
         circleLayout.setOnRotationFinishedListener(this);
 
 
         selectedTextView = (TextView) fgView.findViewById(R.id.selected_textView);
 
+        // Finder navnet på den valgte menu ikon, og sætter teksten til dette navn
+
         String name = null;
         final View view = circleLayout.getSelectedItem();
         if (view instanceof CircleImageView) {
             name = ((CircleImageView) view).getName();
         }
+
+        // sætter clickListener på kanppen der hedder læs
         selectedTextView.setText(name);
         startTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,13 +180,16 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
 
                 }
 
+                // når der bliver klikket på læs, har vi en textHandler, som går ned i vores "lagersystem" og finder en text
+                // som passer til hvad bruger har angivet med hensyn på længde og sværhedsgrad.
+
                 TextHandler handler = new TextHandler();
 
                 String parseString = handler.retrieveText(getActivity(), time, diff, theme.toLowerCase() + ".txt");
 
                 Bundle b = new Bundle();
                 ReadingTest frag = new ReadingTest();
-
+                // Den sender disse værdier med over til ReadingTest, da de skal anvedes til brugerens resultat
                 b.putString("readingTestType", "readingTestOriginal");
                 b.putString("TextToLoad", parseString);
                 b.putString("TextTitle", "Default Titel");
@@ -196,12 +205,18 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
         return fgView;
     }
 
+
+    // denne onItemClick er til vores circle menu, hvad der skal ske når man klikker på ikonet man har valgt
     @Override
     public void onItemClick(View view) {
 
         switch (view.getId()) {
             case R.id.historie:
+                // først kaldes metoden initialzeOnclik, som sætter de forskellige elementer synlige og starter deres animation.
+                // hvis der er nogle tekster der skal sættes, bliver dette også gjort.
                 initializeOnClick(view);
+
+                // denne if og for løkke, sletter alle de andre elementer som ikke er valgt, så der kun er det valgte ikon tilabge
                 if (circleLayout.getChildCount() > 1) {
 
                     for (int i = 0; i < 5; i++) {
@@ -209,79 +224,88 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
                     }
                 }
 
+                //Efter alle de andre ikoner er slettet, skal ikonet flyttes til center af skærmen, dette gøres ved hjælp af metoden moveViewToScreenCenter
                 ImageView img_his = (ImageView) fgView.findViewById(R.id.historie);
-              //  img_his.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_his);
 
                 break;
-            case R.id.krimi:
 
+            case R.id.krimi:
+                // først kaldes metoden initialzeOnclik, som sætter de forskellige elementer synlige og starter deres animation.
+                // hvis der er nogle tekster der skal sættes, bliver dette også gjort.
                 ImageView img_krimi = (ImageView) fgView.findViewById(R.id.krimi);
                 initializeOnClick(view);
-
+                // da vi anvender et circle bibliotek, er der ikke nogle smart måde at få fat på det valgte ikon´s id
+                // derfor bliver vi nød til at "hardcode" hvilke ikoner der skal slettes
                 circleLayout.removeViewAt(5);
                 circleLayout.removeViewAt(4);
                 circleLayout.removeViewAt(3);
                 circleLayout.removeViewAt(2);
                 circleLayout.removeViewAt(0);
-              //  img_krimi.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
+                //Efter alle de andre ikoner er slettet, skal ikonet flyttes til center af skærmen, dette gøres ved hjælp af metoden moveViewToScreenCenter
                 moveViewToScreenCenter(img_krimi);
 
                 break;
             case R.id.mad:
-
+                // først kaldes metoden initialzeOnclik, som sætter de forskellige elementer synlige og starter deres animation.
+                // hvis der er nogle tekster der skal sættes, bliver dette også gjort.
                 ImageView img_mad = (ImageView) fgView.findViewById(R.id.mad);
                 initializeOnClick(view);
-
+                // da vi anvender et circle bibliotek, er der ikke nogle smart måde at få fat på det valgte ikon´s id
+                // derfor bliver vi nød til at "hardcode" hvilke ikoner der skal slett
                 circleLayout.removeViewAt(5);
                 circleLayout.removeViewAt(4);
                 circleLayout.removeViewAt(3);
                 circleLayout.removeViewAt(1);
                 circleLayout.removeViewAt(0);
-               // img_mad.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
+
                 moveViewToScreenCenter(img_mad);
 
                 break;
             case R.id.natur:
+                // først kaldes metoden initialzeOnclik, som sætter de forskellige elementer synlige og starter deres animation.
+                // hvis der er nogle tekster der skal sættes, bliver dette også gjort.
                 ImageView img_natur = (ImageView) fgView.findViewById(R.id.natur);
                 initializeOnClick(view);
-
+                // da vi anvender et circle bibliotek, er der ikke nogle smart måde at få fat på det valgte ikon´s id
+                // derfor bliver vi nød til at "hardcode" hvilke ikoner der skal slett
                 circleLayout.removeViewAt(5);
                 circleLayout.removeViewAt(4);
                 circleLayout.removeViewAt(2);
                 circleLayout.removeViewAt(1);
                 circleLayout.removeViewAt(0);
 
-               // img_natur.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_natur);
 
                 break;
             case R.id.sport:
                 ImageView img_sport = (ImageView) fgView.findViewById(R.id.sport);
                 initializeOnClick(view);
-
+                // da vi anvender et circle bibliotek, er der ikke nogle smart måde at få fat på det valgte ikon´s id
+                // derfor bliver vi nød til at "hardcode" hvilke ikoner der skal slett
                circleLayout.removeViewAt(5);
                circleLayout.removeViewAt(3);
                circleLayout.removeViewAt(2);
                circleLayout.removeViewAt(1);
                circleLayout.removeViewAt(0);
 
-                //img_sport.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_sport);
 
                 break;
 
             case R.id.random:
+                // først kaldes metoden initialzeOnclik, som sætter de forskellige elementer synlige og starter deres animation.
+                // hvis der er nogle tekster der skal sættes, bliver dette også gjort.
                 ImageView img_random = (ImageView) fgView.findViewById(R.id.random);
                 initializeOnClick(view);
-
+                // da vi anvender et circle bibliotek, er der ikke nogle smart måde at få fat på det valgte ikon´s id
+                // derfor bliver vi nød til at "hardcode" hvilke ikoner der skal slett
                circleLayout.removeViewAt(4);
                circleLayout.removeViewAt(3);
                circleLayout.removeViewAt(2);
                circleLayout.removeViewAt(1);
                circleLayout.removeViewAt(0);
 
-               // img_random.setLayoutParams((new ViewGroup.LayoutParams(500,500))); //ToDO Ved ikke om denne skal med :)
                 moveViewToScreenCenter(img_random);
 
                 break;
@@ -289,38 +313,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
 
     }
 
-    @Override
-    public void onItemSelected(View view) {
-        final String name;
-        if (view instanceof CircleImageView) {
-            name = ((CircleImageView) view).getName();
-        } else {
-            name = null;
-        }
 
-        selectedTextView.setText(name);
-
-        switch (view.getId()) {
-            case R.id.historie:
-
-                break;
-            case R.id.krimi:
-
-                break;
-            case R.id.mad:
-
-                break;
-            case R.id.natur:
-
-                break;
-            case R.id.sport:
-
-                break;
-            case R.id.random:
-
-                break;
-        }
-    }
 
     @Override
     public void onRotationFinished(View view) {
@@ -333,12 +326,14 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
 
 
     private void moveViewToScreenCenter(View view) {
-        if (view instanceof TextView) {
-            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
-            params.setMargins(0, 0, 0, 0); //substitute parameters for left, top, right, bottom
-            view.setLayoutParams(params);
-        }
+
+        // sætter ikonets position til at være den nederst del af cirklen
         circleLayout.setFirstChildPosition(CircleLayout.FirstChildPosition.SOUTH);
+
+        // Denne metoden, finder ud af ikonets nuværende placering
+        // Derefter finder den ud af hvor langt der er til center af skærmen fra den nuværende placering
+        // Til slut tilføjer den så de manglende x og y værdier til ikonets nuværende x og y værdier.
+        // herefter bliver der lavet en animation af ikonet, så det rykker sig stille op til center af skærmen
         RelativeLayout root = (RelativeLayout) fgView.findViewById(R.id.rootLayout);
         DisplayMetrics dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -354,14 +349,12 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
         TranslateAnimation anim = new TranslateAnimation(0, xDest - originalPos[0], 0, (yDest - originalPos[1]) - ((yDest - originalPos[1]) / 2));
         anim.setDuration(1000);
         anim.setFillAfter(true);
-        int x = xDest - originalPos[0];
-        int y = yDest - (originalPos[1]) / 2;
         view.startAnimation(anim);
 
 
     }
 
-
+    // denne metoder kan tage en til mange seekbar ind, og rotere dem ved hjælp af en animation
     private void rotateSeekBar(SeekBar... s) {
         for (int i = 0; i < s.length; i++) {
             SeekBar SeekBarAraay = s[i];
@@ -372,7 +365,7 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
         }
     }
 
-
+// denne metode kan tage en til mange textview ind, og rotere dem ved hjælp af en animation
     private void setTextViewRotate(TextView... t) {
 
         for (int i = 0; i < t.length; i++) {
@@ -384,6 +377,10 @@ public class ReadingTestPrerequisites extends Fragment implements CircleLayout.O
         }
     }
 
+    // når man har valgt hvilket genre man vil læse, skal der komme nogle andre elementer til syne
+    // disse elemnter bliver gjort til syne i denne metode, plus ders telst også bliver sat til hvad den skal være
+    // Der bliver også sat deres animationer
+    // plus der bliver også lavet en animation til knappen LÆS!
     private void initializeOnClick(View v) {
 
         circleLayout.setEnabled(false);
