@@ -6,30 +6,39 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        style="@style/FAQText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Hvordan tager jeg en læsetest? \n Når du skal tage en læsetest benyttes enten knappen i hovedmenuen eller knappen i sidemenuen. Herfra får du lov at vælge den genre, du vil læse, samt valg af tid og sværhedsgrad."
+        android:text="@string/FAQ_lasetest"
         android:id="@+id/testQuest"
         android:layout_centerHorizontal="true"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
     <TextView
+        style="@style/FAQText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hvordan finder jeg tekst på nettet? \n Når du skal finde en artikel eller anden form for tekst fra nettet, skal du finde knappen 'tekst fra nettet' i sidemenuen eller hovedmenuen. Herefter kan du hente teksten fra det vindue, du står i vha. knappen nede i højre hjørne."
+        android:text="@string/FAQ_tekst_web"
         android:textAlignment="center"
         android:id="@+id/webQuest"
         android:layout_below="@id/testQuest"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
     <TextView
+        style="@style/FAQText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hvordan læser jeg grafen på min profil? \n Grafen afbilder din læseevne i forhold til gennemsnittet. Den grønne søjle repræsenterer den gennemsnitlige læsers fart, og denne kan således måles op mod dit eget resultat, givet ved den blå søjle. Du kan scrolle til højre eller venstre afhængig af, hvor mange resultater, der er gemt. "
+        android:text="@string/FAQ_tekst_graf"
         android:textAlignment="center"
         android:id="@+id/graphQuest"
         android:layout_below="@id/webQuest"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 </RelativeLayout>
