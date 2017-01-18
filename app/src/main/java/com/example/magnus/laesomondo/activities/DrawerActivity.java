@@ -1,5 +1,6 @@
 package com.example.magnus.laesomondo.activities;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Build;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
+import com.example.magnus.laesomondo.fragments.AboutFrag;
 import com.example.magnus.laesomondo.fragments.MainMenu;
 import com.example.magnus.laesomondo.R;
 import com.example.magnus.laesomondo.fragments.ReadingTestPrerequisites;
@@ -138,6 +140,14 @@ getSupportActionBar().show();
             }else {Toast.makeText(this, "Du er allerede på Tekst Fra Web", Toast.LENGTH_SHORT).show();}
         } else if (id == R.id.aboutDrawer) {
 
+            if(!(getFragmentManager().findFragmentById(R.id.container_main).getClass().equals(AboutFrag.class))) {
+
+                manager.beginTransaction()
+                        .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left)
+                        .replace(R.id.container_main,
+                                new AboutFrag()).commit();
+            }else {Toast.makeText(this, "Du er allerede på denne side", Toast.LENGTH_SHORT).show();}
+
         } else if (id == R.id.nav_settings) {
 
             Intent intent = new Intent(this,Settings.class);
@@ -153,6 +163,8 @@ getSupportActionBar().show();
             }else {Toast.makeText(this, "Du er allerede Logget ud", Toast.LENGTH_SHORT).show();}
 
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
