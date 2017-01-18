@@ -145,7 +145,7 @@ getSupportActionBar().show();
                 manager.beginTransaction()
                         .setCustomAnimations(R.animator.enter_from_left, R.animator.exit_to_left)
                         .replace(R.id.container_main,
-                                new AboutFrag()).commit();
+                                new AboutFrag()).addToBackStack("").commit();
             }else {Toast.makeText(this, "Du er allerede på denne side", Toast.LENGTH_SHORT).show();}
 
         } else if (id == R.id.nav_settings) {
