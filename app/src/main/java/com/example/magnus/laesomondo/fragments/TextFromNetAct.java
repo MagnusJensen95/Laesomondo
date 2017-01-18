@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.magnus.laesomondo.R;
@@ -90,6 +92,31 @@ public class TextFromNetAct extends Fragment {
 
 
         web = (WebView) v.findViewById(R.id.webviewContent);
+        web.getSettings().setJavaScriptEnabled(true);
+        web.setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if(event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    WebView webView = (WebView) v;
+
+                    switch(keyCode)
+                    {
+                        case KeyEvent.KEYCODE_BACK:
+                            if(webView.canGoBack())
+                            {
+                                webView.goBack();
+                                return true;
+                            }
+                            break;
+                    }
+                }
+
+                return false;
+            }
+        });
 
 
         web.setWebViewClient(new WebViewClient() {
@@ -143,6 +170,8 @@ public class TextFromNetAct extends Fragment {
             try {
                 Document doc = Jsoup.connect(currentURL).get();
                 //  HTMLTExt = doc.text();
+
+
                 Elements paragraphs = doc.select("p");
                 HTMLTitel += doc.title();
                 for (Element p : paragraphs) {
