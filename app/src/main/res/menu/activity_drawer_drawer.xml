@@ -17,7 +17,7 @@
         <item
             android:id="@+id/aboutDrawer"
 
-            android:title="Om Appen" />
+            android:title="Hjælp" />
     </group>
 
 
