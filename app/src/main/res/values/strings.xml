@@ -50,6 +50,12 @@ Pellentesque sit amet eros est. Mauris pellentesque eros quis magna interdum, mo
     <string name="UserProfileAgePost">19</string>
     <string name="minProfilActionBar">minProfilActionBar</string>
 
+    <string name="FAQ_lasetest"><b>Hvordan tager jeg en læsetest?</b> \n \n Når du skal tage en læsetest benyttes enten knappen i hovedmenuen eller knappen i sidemenuen. Herfra får du lov at vælge den genre, du vil læse, samt valg af tid og sværhedsgrad.</string>
+
+    <string name="FAQ_tekst_graf"><b>Hvordan læser jeg grafen på min profil? </b>\n \n Grafen afbilder din læseevne i forhold til gennemsnittet. Den grønne søjle repræsenterer den gennemsnitlige læsers fart, og denne kan således måles op mod dit eget resultat, givet ved den blå søjle. Du kan scrolle til højre eller venstre afhængig af, hvor mange resultater, der er gemt.</string>
+    <string name="FAQ_tekst_web"><b>Hvordan finder jeg tekst på nettet?</b> \n \n Når du skal finde en artikel eller anden form for tekst fra nettet, skal du finde knappen * Tekst Fra Web * i sidemenuen eller hovedmenuen. Herefter kan du hente teksten fra det vindue, du står i vha. knappen nede i højre hjørne.</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

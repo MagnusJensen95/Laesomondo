@@ -29,6 +29,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        // Opsætter en Toolbar så man kan klikke tilbage fra settings
         Toolbar tool = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(tool);
@@ -41,20 +42,23 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
             }
         });
 
-
+        // initialisere de forskellige elementer
         exampleTextView = (TextView) findViewById(R.id.eksempelTxt);
         fontValue = (TextView) findViewById(R.id.sizeValue);
         fontSizeSeekBar = (SeekBar) findViewById(R.id.seekBarFontSize);
         btnBackColor = (Button) findViewById(R.id.btnBackgroundColor);
         btnFontColor = (Button) findViewById(R.id.btnFontColor);
         btnReset = (Button) findViewById(R.id.btnReset);
-        
+
+        // laver en prefernceManger så vi kan få fat i brugerns gemte værdier til font size og baggrundsfarve
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         int saveFontSize = prefs.getInt("textSize", fontSize);
         int saveFontColor = prefs.getInt("fontColor",fontColor);
         int saveBackgroundColor = prefs.getInt("backgroundColor",backgroundColor);
-        
+
+        // hvis det er første gang appen blver anvendt, bliver der sat nogel standard værdier
+        //hvis ikke, så skal den bare sætte de værdier som brugeren har angiver tidligere i appen
         if (saveFontSize == 0){
             fontSizeSeekBar.setProgress(12);
             exampleTextView.setTextSize(12);
@@ -65,13 +69,16 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
           fontValue.setText("Skriftstørrelse : " + fontSizeSeekBar.getProgress());
            exampleTextView.setTextSize(saveFontSize);
         }
-
+        // hvis det er første gang appen blver anvendt, bliver der sat nogel standard værdier
+        //hvis ikke, så skal den bare sætte de værdier som brugeren har angiver tidligere i appen
         if(saveFontColor == 0){
 
         }
         else{
             exampleTextView.setTextColor(saveFontColor);
         }
+        // hvis det er første gang appen blver anvendt, bliver der sat nogel standard værdier
+        //hvis ikke, så skal den bare sætte de værdier som brugeren har angiver tidligere i appen
         if(saveBackgroundColor == 0){
 
         }
@@ -79,7 +86,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
             exampleTextView.setBackgroundColor(saveBackgroundColor);
         }
 
-
+        //Når man ændre på seekbar skal man kunne se det med det samme på den eksempel tekst vi har
         fontSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -99,7 +106,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
 
             }
         });
-
+        // når man klikker på knappen baggrundsfarve kommer der en dialog box om med forskellige farver man kan vælge imellem
         btnBackColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +118,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
                         .show();
             }
         });
-
+        // når man klikker på knappen tekstfarve kommer der en dialog box om med forskellige farver man kan vælge imellem
         btnFontColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +130,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
                         .show();
             }
         });
-
+        // hvis man gerne vil tilbage til det normale farver kan der klikkes på knappen reset
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +145,7 @@ public class Settings extends AppCompatActivity implements ColorDialog.OnColorSe
         });
     }
 
+    // Når man klikker på en farver i dialog boxen, skal den gemme denne farver
     @Override
     public void onColorSelected(int newColor, String tag) {
         if(tag.equals("font")){

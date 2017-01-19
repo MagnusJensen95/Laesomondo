@@ -54,8 +54,6 @@ public class SummaryPopUp extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          View v = inflater.inflate(R.layout.summarypopupnew, container, false);
 
-       // dm = new DisplayMetrics();
-        //getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
       tryAgain = (ImageView) v.findViewById(R.id.TryAgainButton);
        tryAgain.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -85,7 +83,7 @@ public class SummaryPopUp extends DialogFragment {
         });
       scoreView = (TextView) v.findViewById(R.id.textViewWPM);
       lixView = (TextView) v.findViewById(R.id.textViewLix);
-        //getActivity().getWindow().setLayout((int)(dm.widthPixels*.8), (int)(dm.heightPixels*.6));
+
 
         Bundle extras = getArguments();
         timeMillis = extras.getDouble("ReadingTime");
@@ -93,7 +91,6 @@ public class SummaryPopUp extends DialogFragment {
         textTitle = extras.getString("TextTitle");
         textText = extras.getString("TextToLoad");
 
-        int timeMinutes = (int) Math.floor((timeMillis/1000)/60);
         int timeSeconds = (int) Math.floor(timeMillis/1000)%60;
 
         double wordsPM = (wordsInText/timeSeconds)*60 ;
@@ -112,11 +109,9 @@ public class SummaryPopUp extends DialogFragment {
 
         if( d[0] < 6) {
             database.addTestResult(textTitle, wordsInText, timeMillis / 1000, LixCalculator.calcLix(textText),
-                    d); //TODO: change the 2 methods to return actual values.
+                    d);
         }
 
-      //  getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-     //   getDialog().getWindow().setBackgroundDrawable(null);
         setCancelable(false);
 
         return v;
@@ -147,14 +142,8 @@ public class SummaryPopUp extends DialogFragment {
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
             dialog.getWindow().setLayout(width, height);
-
-         //   dm = new DisplayMetrics();
-           // getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-
-           //dialog.getWindow().setLayout((int)(dm.widthPixels*.5), (int)(dm.heightPixels*.5));
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            //dialog.getWindow().setBackgroundDrawableResource(R.color.colorPrimary);
+
         }
     }
 
@@ -169,13 +158,6 @@ public class SummaryPopUp extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        
-
-
-
-
-
-
         return dialog;
     }
 }
