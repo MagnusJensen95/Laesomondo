@@ -86,7 +86,7 @@ public class MainMenuUser extends Fragment {
                 if (keyCode == KeyEvent.KEYCODE_BACK)
                 {
                     counter++;
-                    if(counter == 1){
+                    if(counter == 2){
                         Toast.makeText(getActivity(), "Klik tilbage igen for at afslutte", Toast.LENGTH_SHORT).show();
                     }
                     if(counter == 4){
