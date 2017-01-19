@@ -19,7 +19,7 @@
 
         <activity
             android:name=".activities.DrawerActivity"
-            android:label="Læsomondo"
+            android:label="G26_Læsomondo"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
